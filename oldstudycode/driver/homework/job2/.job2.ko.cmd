@@ -1,0 +1,1 @@
+cmd_/home/silence/emsd/driver/homework/job2/job2.ko := ld -r -m elf_i386 -T /usr/src/linux-headers-3.8.0-30-generic/scripts/module-common.lds --build-id  -o /home/silence/emsd/driver/homework/job2/job2.ko /home/silence/emsd/driver/homework/job2/job2.o /home/silence/emsd/driver/homework/job2/job2.mod.o

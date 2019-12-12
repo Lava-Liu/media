@@ -1,0 +1,131 @@
+家目录：/home/........
+以.开头的文件是隐藏的
+.：当前工作目录
+..：上一层工作目录 
+~：家目录
+cd：切换到家目录
+
+ls 现实当前路径下所有的文件和目录的名称
+ls -a 显示隐藏文件~（）隐藏文件/目录 以 “.”开头）
+ls -R 递归显示工作目录下的
+ls -t 啊怒i后一次访问修改时间进行排序
+ls -F显示文件类型
+
+七大文件类型
+d:目录
+-：普通文件  
+c：字符型文件 /dev/char/....
+b：块文件 /dev/sda*
+*n:网络文件  
+p:管道文件  mkfifo 创建一个管道文件
+s：socket套接字文件
+l： 链接文件
+
+
+文件权限：
+r：读权限
+读文件的内容，目录的字目录和子文件的名称
+w:写权限，向文件中写数据内容
+目录指的是可以创建或者删除子文件/子目录
+x：执行权限，运行一个可执行文件
+目录：可以在目录当中进行子文件的查找
+-：无权限
+文件/目录的操作者：
+拥有者：利用UID来区分拥有者。root用户
+同组人：GID相同的登陆者
+其他人（o）
+所有人（a）
+
+修改权限 chmod mode filename
+rwx rwx rwx
+ooo ooo ooo
+111 100 110
+7    4   6
+
+u+x u-w
+与操作 ：N&0=0
+或操作 ：N |1=1
+chmod 777 file1
+chmod u=rwx file1
+chmod g=rwx file1
+chmod o=rwx file1
+
+
+touch 创建空的，新的文件
+touch filename【s】
+如果已经存在更新文件--》最后一次访问修改时间
+mkdir 创建一个空的目录
+
+mkdir dirname【s】
+
+
+
+
+cp；数据拷贝操作
+针对文件 ：默认执行-f参数即默认拷贝文件信息
+单独的文件拷贝：
+cp 【-f】soucefile destination-file
+将文件拷贝到指定的目录当中
+cp 【-f】 source-file dest-dir
+目录的拷贝
+cp -r source-dir dest-dir
+拷贝目录去另一个目录的时候要加上-r
+
+mv：文件的移动或重命名
+1.重命名：原位置和目的位置在相同的目录当中
+mv a.txt b.txt ======》a.txt 重命名成b.txt
+2.将文件移动到指定的目录当中：
+mv 【-i】filename（s） dir-name
+3.将目录移动到指定的位置
+mv 【i】 source-dir（s） destination-dir
+-i :对存在文件覆盖的情况给出提示
+输入‘y’覆盖文件
+输入‘n’取消操作
+
+
+
+
+删除：
+rm ：删除目录时，需要加上“-r”参数
+rmdir：只能删除一个空目录
+压缩命令：
+gip filename
+bzip2 filename
+zip dst.zip file(s) dir（s）
+解压命令：
+gunzip filename
+bunzip2 filename
+unzip src.zip
+
+
+打包和归档：tar 
+v  现实打包进度
+f:知名打包之后file类型
+vf：通常两者会绑定在一起
+c:create file 归档时使用新的文件名称
+j:打包并使用bzip2压缩
+z:打包并使用gzip压缩
+t：察看包内文件名称 list all files in tarfile
+x:提取文件
+c和x以及j和z不能同时出现在参数中
+解压缩可以指定解压缩的目录位置：
+tar -xvf all.tar -C dest-dir（通常情况下是绝对路径）
+
+解压命令：
+
+
+ln ：链接
+硬链接：链接文件位置存储的是文件的名称和原始文件的索引块编号。硬链接文件不得跨磁盘分区
+软链接（符号链接）：储存链接文件的路径
+
+
+
+练习：touch a能否产生b
+
+
+
+
+
+
+
+

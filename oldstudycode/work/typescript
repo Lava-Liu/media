@@ -1,0 +1,16 @@
+Script started on 2013年07月17日 星期三 14时05分30秒
+]0;silence@ubuntu: ~/worksilence@ubuntu:~/work$ date
+2013年 07月 17日 星期三 14:05:56 CST
+]0;silence@ubuntu: ~/worksilence@ubuntu:~/work$ cal
+      七月 2013         
+日 一 二 三 四 五 六  
+    1  2  3  4  5  6  
+ 7  8  9 10 11 12 13  
+14 15 16 [7m17[27m 18 19 20  
+21 22 23 24 25 26 27  
+28 29 30 31           
+                      
+]0;silence@ubuntu: ~/worksilence@ubuntu:~/work$ exit
+exit
+
+Script done on 2013年07月17日 星期三 14时06分23秒

@@ -1,0 +1,36 @@
+键盘录入：
+1 2 3 4 5 6
+read读取
+num1 num2 num3 
+num1=1
+num2=2 
+num3=3 4 5 6
+
+
+
+
+
+
+if [ -a $dir   ]&&[ -z &dir ]
+then
+if [[ -a $dir && -z &dir ]]
+把a文件中的字符;
+所有的小写字母转化成大写字母输出到B文件
+大小写转换：
+tr “a” “A”
+
+
+echo $PATH
+“：”作为分隔符
+把PATH的内容进行拆分，拆分后没一向单独作为一行进行输出
+进行输出
+array=（1 2 3 4 5 ）
+PATH=/..：/..：/..
+IFS = “：”
+for var in  $PATH
+do
+  echo "$var"
+done
+对于信号的处理不能在函数内部进行捕获处理
+这种操作会触发信号的陷阱。
+

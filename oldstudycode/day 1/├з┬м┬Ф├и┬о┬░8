@@ -1,0 +1,74 @@
+/usr/include/stdio.h
+
+
+
+预处理 ： 展开头文件 替换宏定义
+gcc -Iinclude -E src/sum.c -o sum.i
+
+-I    表示找到头文件目录是include
+编译： 语法错误检查并翻译成汇编代码
+gcc -Iinclude -S src/sum.i -o sum.s
+汇编 汇编成二进制指令
+gcc -c sum.s -o obj/sum.o
+
+ objdump -d  obj/main.o 可以进行反汇编
+链接 ： 把不同模块的代码内存地址链接到一起
+gcc obj/sum.o obj/main.o -o bin/main
+
+执行  ./bin/main 
+export C_INCLUDE_PATH=./include
+用来放置头文件的环境变量
+gcc obj/main.c obj/sum.c -o /bin/sum
+-Wall 打开所有警告
+-w消除警告
+如做作库文件
+ar -rc src/sum.c -o lib/sum.o
+优点：
+缺点：编译的时候会把库中的源代码直接插入调用程序中造成 代码体积庞大 
+每次修改库后，调用者都要重新编译
+共享库：
+gcc -Ｉinclude -fPIC -shared -o ./lib/libsum.so src/sum.c (obj/sum.o)
+gcc -Iinclude src/main.c -L./lib -lsum -o bin/main
+优点：
+在程序运行的时候只装入内存一次，程序要调用库中的功能 则跳到该库的入口执行
+库每次更新替换后，不需要重新编译，重新链接即可
+ldd bin/main
+1、export LD_LIBRARY_PATH
+2、sudo cp ./lib/libsum.so  /lib
+3、cd /etc/ld.so.conf.d
+   vi libc.conf or touch mulib.conf
+把自己的应用程序使用库的绝对路径名添加上去
+ldconfig 使配置文件生效 当然也可以重启机器
+
+
+动态库 
+dlopen /
+       void *dlopen(const char *filename, int flag);
+
+       char *dlerror(void);
+
+       void *dlsym(void *handle, const char *symbol);
+
+       int dlclose(void *handle);
+
+
+在代码内直接调用 使用dlopen 
+ＧＵＮ/Ｌinux工具链
+gcc/g++
+make  Ｍakefile
+gdb 调试工具 
+gdb bin/main
+gcc -g -Ｉinclude src/*.c -o  bin/sum 
+b 打断点 b main function/linename
+察看断点 info break
+删除断点 delete n（断点编号）
+ 执行shell中的命令 比如 shell clear
+l  list the code 察看源程序
+
+r   start x the program running
+
+下一步：
+    下一条指令，跳过函数内部 ： n（next）
+    可以进入函数内部执行： s （step）
+    打印变量的值：p （print）
+    跳到下一个断点：until

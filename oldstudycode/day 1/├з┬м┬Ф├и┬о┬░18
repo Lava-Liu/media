@@ -1,0 +1,86 @@
+struct student s1；
+struct student *s = &s1；
+s->name
+（*s）.name
+
+结构体可以包含另外的结构体 不能包含机构体自身
+也可以包含自身的指针
+struct student
+{
+	int code;
+	double score;、
+	
+        struct student *s;
+}
+结构体也可以直接初始化
+struct student si={ 1000."liuwei",90};
+
+同一类型的结构体变量 才可以直接复制
+因为同样类型的结构体变量内存布局相同）
+struct student s1 = {.....};
+struct student s2;
+s2 = s1;
+
+按地址对齐存储 struct 提高效率和准确性
+1.为什么要对齐
+2指定对齐字节数：
+本机编译器默认为：4 字节
+（存放起始地址可能被4整除）
+ 有效对齐字节数：
+虽然有默认对齐字节数，但是不同的类型的有效字节对齐数是不同的
+有效对齐数：是变量自身的字节数与默认指定的字节数中较小的一个
+        自身字节 指定对齐 有效对齐
+比如 int    4      4         4 
+     char   1      4         1
+     double 8      4         4 
+     short  2      4         2  
+
+结构体本身的对齐：
+ 结构体中所有元素放完后，整个结构体大小占多少个字节，要根据结构体默认指定的对齐地址来确定
+
+#pragma pack(2)
+
+struct s
+{
+	char a;
+  	int  b;
+	short c; 
+
+}
+;
+
+
+使用联合体时 注意先把所有位清零
+#include <memory.h>
+memset(&d,0,sizeof(d));
+往team中添加成员
+根据编号code删除team中的某个成员
+根据编号code获取么个成员
+查询所有成员
+
+
+malloc 强制转换成需要的指针类型
+memset（d，0，sizeof（char））；
+if（p==NULL） return // assert（p！=NULL）
+判断是否分配成功
+使用free（）释放
+realloc（NULL，100）
+char *p = (char*)calloc(100,sizeof(char));
+会自动初始化为零
+void creat_memory(char *p,int n)
+{
+	p=(char *)malloc(n);
+	assist(p!=NULL);
+}
+char * q = NULL;
+creat_memory(q,100);
+strcpy(q,"helloworld");
+free(q);
+
+
+动态数组：
+1. 
+
+使用动态数组写栈和队列
+使用链表写哈希表 hash table
+

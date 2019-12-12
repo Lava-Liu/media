@@ -1,0 +1,8 @@
+<RCC>
+    <qresource prefix="/">
+        <file>6801.png</file>
+        <file>4841807.png</file>
+        <file>air.png</file>
+        <file>Astra Orb.png</file>
+    </qresource>
+</RCC>

@@ -1,0 +1,30 @@
+Ctrl+c SIGINT interupter 打断中断
+Ctrl+z SIGTSTP terminal stop 终端挂起 
+ctrl+\ SIGQUIT  
+ vi /usr/include/i386-linux-gnu/bits/signum.h 
+                                    /errno.h
+
+SIGCHLD
+
+每个信号都有信号自己的默认处理方式
+   大多数信号的默认处理方式为终止程序或忽略
+   返回类型为函数指针的函数
+
+     int *(((*func(int,int)[])(int)))
+
+signal函数调用的三个方式：
+
+1 signal(SIGINT,funp);
+2 signal(SIGINT,SIG_IGN);//忽略某个信号
+3 signal(SIGINT,SIG_DFL);//恢复信号的默认处理
+
+在信号处理的过程中，如果有两个相同的信号发生
+则第一个信号被处理 第二个信号处于阻塞状态
+如果有两个不同的信号发生
+则第一个信号被打断，第二个信号优先被处理，处理完成后继续处理未完成的第一个信号
+
+相同信号处理上限为2个
+
+信号屏蔽字和信号未决字
+
+

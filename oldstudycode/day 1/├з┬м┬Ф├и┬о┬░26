@@ -1,0 +1,44 @@
+myremove(char *pathname)
+判断文件or目录
+ 目录--》遍历
+      opendir
+      while（readdir）
+      {
+        myremove(  )
+      }
+       
+ closedir:
+删除当前目录
+
+realpath()根据传入的文件名称打印绝对路径信息~
+char path_name[1024];
+real_path("a.txt",path_name);
+
+
+进程的开始
+  调用-start
+     创建进程
+     创建程序内存空间
+     等等初始化工作
+        
+结束进程的方法
+1、等待main函数自动完成
+2、
+1，return 
+2、使用系统调用
+exit，_exit,_Exit;
+进程终止了main函数
+main函数终止了，进程不一定终止 
+
+exit函数
+    带有收尾工作
+    1，刷新io缓冲区
+    2，调用atexit注册的函数（倒序，先注册的会被后执行）
+_exit函数（—Exit）
+  直接结束进程
+
+int main(void);
+int main(int argc,char* argv[])
+int main(int argc,char *argv[],char * envp[]);
+                                  环境变量
+

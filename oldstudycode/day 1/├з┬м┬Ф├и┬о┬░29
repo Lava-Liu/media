@@ -1,0 +1,45 @@
+setuid
+root 修改无限制
+非root 
+      uid,euid--》能改为自己
+           必须当前的euid不为实际用户
+      uid   ---   能改为自己
+
+teacher，student
+    以student用户启动进程
+    UID=student，EUID=teacher
+    可以修改EUID到student
+    也可以修改回teacher
+
+getpgid(0)
+
+
+进程组
+   组长：进程组的第一个组员，进程组的ID和组长的ID相同
+   但是组长进程终止后，组ID不改变且进程组不终结
+   进程1000 --》 1000号进程组
+   1001  -----    1000号组
+
+   父进程可以修改子进程的组ID
+   子进程可以修改自己的组ID
+   子进程不能修改父进程的组ID
+   组长和组内成员的管理无关
+   
+
+   进程组内最后一个进程终止，进程组消失
+    jobs
+   fg bg
+   /usr/include/asm-generic/signal.h
+SIGINT Ctrl+c
+SIGQUIT Ctrl+\
+SIGTSTOP Ctrl+z
+信号 SIGINT(Ctrl + c)
+   前台进程组
+   在接受信号的时候，前台进程组中的每一个都会收到信号
+   pid  pgid
+   1000 1000
+
+切换终端的前台进程时
+  只有当前占有控制终端的组有权利把控制权交给别的组
+
+

@@ -1,0 +1,58 @@
+#include <pthread.h> 线程库 编译时要加上 -lpthread 调用该库
+pthread_create(pthread_t *thread ,shuxing ,函数指针，arg)
+
+线程间数据共享
+1.使用参数传递
+   局部变量                  stack
+   字符串常量                code
+   malloc返回地址            heap
+   static 静态局部变量       data
+2.使用全局变量（data）
+
+线程终止方式
+1.线程从启动历程返回，返回值是线程的退出码 return  （void *）100
+2、线程可以被同一进程的其他线程取消 pthread——cancel：
+ 会终端当前线程的执行，可能导致线程异常结束
+ 使用时，建议给需要结束的线程追加清理函数
+3/线程自己调用pthread——exit
+4、主线程终止，当前进程内所有的线程都终止
+5、信号原因终止
+
+
+线程异常或正常推出后都会在内存空间残留有一些数据
+  使用pthread_join可能会回首这些残留的数据
+  但pthread_join会引发阻塞状态
+  我们也可选择让线程自己清理残留的数据
+      1、通过设置线程分离属性
+      2、或自定义清理过程
+      
+
+
+若残留数据被有被回收干净将导致不能申请新的线程
+  只能通过pthread_join或者设置分离属性来回首内核中的数据 
+
+pthread_cleanup_push
+pthread_cleanup_pop
+必须成对出现
+
+pthread_cleanup_push中记录的函数在以下情况下会被逆序调用
+ 1、主动调用 pthread_cleanup_pop; 
+ 2\ pthread_exit;
+ 3.pthread_cancel();
+
+
+
+PTHREAD_CREATE_JOINABLE  正常激情哦的那个线程 需要回收
+PTHREAD_CREATED_DETACHED  自动回收
+
+mutex
+rwlock
+wait condition
+
+
+龟兔赛跑
+1、100是终点
+2、到达终点以后另一个人停止前进
+3、返回胜利者的名字
+4、乌龟5/s
+6  兔子（0-10）/s

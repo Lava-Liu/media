@@ -1,0 +1,1 @@
+cmd_/home/silence/emsd/driver/chardev/ioctl/charioctl.ko := ld -r -m elf_i386 -T /usr/src/linux-headers-3.8.0-30-generic/scripts/module-common.lds --build-id  -o /home/silence/emsd/driver/chardev/ioctl/charioctl.ko /home/silence/emsd/driver/chardev/ioctl/charioctl.o /home/silence/emsd/driver/chardev/ioctl/charioctl.mod.o

@@ -1,0 +1,1 @@
+cmd_/home/silence/emsd/driver_practice/chardev/chardev.ko := ld -r -m elf_i386 -T /usr/src/linux-headers-3.8.0-30-generic/scripts/module-common.lds --build-id  -o /home/silence/emsd/driver_practice/chardev/chardev.ko /home/silence/emsd/driver_practice/chardev/chardev.o /home/silence/emsd/driver_practice/chardev/chardev.mod.o

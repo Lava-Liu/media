@@ -1,0 +1,8 @@
+./a
+./file.s3
+./test/a
+./test/link1
+./file.s2
+./file.s1
+./aba
+./adc

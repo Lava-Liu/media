@@ -1,0 +1,21 @@
+#include <stdio.h> /user/include 
+#include "sum.h"	默认在当前目录下找该头文件
+
+也可以指定 export C_INCLUCDE_PATH=./include 
+
+流的概念：
+流在内存中的数据结构的表示：FILE结构体
+1.fopen打开流 返回一个FILE结构体指针
+（创建FILE结构体的内存空间，初始化缓冲区的内存）
+2.操作流的数据
+3，fclose（fp） 关闭流
+（刷新缓冲区 释放FILE结构体和缓冲区的内存内存）
+EOF //ctrl+d
+
+
+scanf("%d%d%d",&1,&2,&3);默认空格为分割符号
+fscanf（）
+sscanf（）
+
+0 1 2
+fseek(fp,0,1  s)

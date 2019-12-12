@@ -1,0 +1,283 @@
+1、open函数
+头文件 
+#include <fcntl.h>
+int open(const char *pathname , int oflag, ... 可变参数列表，mode_t mode * / );
+返回值 如果成功打开一个文件路径 则返回该路径的文件描述符 如果发生错误则 返回 -1
+可变参数 O_CREAT O_TRUNC O_NOBLOCK O_RDONLY O_WRONLY O_RDWR  O_EXCL O_NOCTTY O_SYNC O_APPEND
+当使用 O_CREAT 时 使用mode参数 0777
+
+——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————-
+2、creat 函数
+头文件
+#include <fcntl.h>
+int creat(const char *pathname,mode_t mode);
+返回值 如果成功创建一个新文件 则返回该文件的文件描述符 如果发生错误则 返回 -1
+它以只写的方式打开创建的新文件
+
+——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
+3、read 函数
+头文件
+#include <unistd.h>
+int read(int filedes,void *buffer,size_t n_bytes)
+返回值 返回读到的字节数 如果读文件到结尾则返回 0，若出错则返回 -1
+char buffer[SIZE];
+ssize_t n_read;
+if((n_read=read(STDIN_FILENO,buffer,SIZE)) < 0)
+因为有多种情况可能造成实际读到的字节数少于要求的字节数所以一般使用while来读取
+while((n_read=read(STDIN_FILENO,buffer,SIZE))!=0)
+
+————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
+4、write 函数
+头文件
+#include <unistd.h>
+int write(int filedes,void *buffer,size_t n_bytes)
+返回值 返回写入的字节数 如果出错则返回-1
+if(write(STDOUT_FILENO,buffer,n_read)!=n_read)
+
+—————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
+5、通过read 和 write 函数实现copy函数
+#include <stdio.h>
+#include <unistd.h>
+#include <string.h>
+#include <errno.h>
+void copy(int fd1,int fd2)
+{
+	char buffer[SIZE]={};
+	ssize_t n_read;
+        while((n_read=read(fd1,buffer,SIZE))!=0)
+ 	{
+		if(n_read<0)
+                  {
+			fprintf(stderr,"read: %s\n",strerror(errno));
+			exit(1);	
+		  }
+		while(write(fd2,buffer,n_read)!=n_read)
+                  {
+                        fprintf(stderr,"read: %s\n",strerror(errno));
+		        exit(1)							
+                  }
+        }
+}
+
+——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
+6、lseek 函数
+头文件 
+#include <unistd.h>
+off_t lseek(int filedes,off_t offset,int whence)
+返回值 如果成功则返回偏移量 如果出错返回-1
+whence ： SEEK_SET SEEK_CUR SEEK_END
+当使用O_APPEND参数时lseek对write无效但是对read有效
+测试文件的长度  off_t len=lseek(fd,0,SEEK_END)
+lseek函数还可以用来制造空洞文件
+lseek(fd,SIZE(文件大小)-1，SEEK_END);
+write(fd,"",1);
+制造空洞文件的其他方法
+dd if=/dev/zero of=/indexdir bs=1 count=次数
+
+——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
+7、dup dup2 函数
+头文件
+#include <unistd.h>
+int dup(int filedes)
+返回值 如果成功则返回新的文件描符，如果出错则返回-1
+用来复制文件描述符 返回的新文件描述符号 新的文件描述符号指向传入参数的文件表项
+int dup2(int filedes,int filedes)
+返回值 如果成功则返回新的文件描述符，如果出错返回-1
+用来复制文件描述符 返回的文件描述符 指向第一个参数所指向的文件表项
+可以使用dup2函数结合copy函数实现重定向
+输入重定向  dup2(filename,STDIN_FILENO) copy(STDIN_FILENO,STDOUT_FILENO)
+输出重定向  dup2(filename,STDOUT_FILENO) copy(STDIN_FILENO,STDOUT_FILENO
+错误重定向  dup2(filename,STDERR_FILENO) 
+
+——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
+8、fcntl 函数
+头文件
+#include <unistd.h>  //用来保存fcntl内使用的命令参数
+#include <fcntl.h>
+int fcntl(int filedes,int cmd,...)
+返回值 根据cmd命令而变化 如果出错返回-1
+fcntl函数有五种功能
+1、复制一个现存的描述符，返回新的文件描述符 类似于dup函数 cmd 为 F_DUPFD
+2、获得或设置文件描述符标记。 cmd F_GETFD 这就是一个垃圾命令~真心没用 cmd F_SETFD fcntl(fd,F_SETFD,fd2) 该功能类似于dup2
+3、获得或设置文件状态标志（保存在文件表项），文件状态标志将会返回  cmd F_GETFL cmd F_SETFL 
+4、获得或设置异步I/O所有权 cmd F_GETOWN cmd F_SETOWN
+5、获得或设置记录锁 cmd F_GETLK F_SETLK F_SETLKW
+
+——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
+9、使用 F_GETFL F_SETFL 实现文件状态标志的添加和删除
+#include <stdio.h>
+#include <unistd.h>
+#include <fcntl.h>
+void set_fl(int fd,int flags)
+{
+	int oldflag = fcntl(fd,F_GETFL);
+          <加错误判断>
+	int newflag = oldflag | flags;
+        fcntl(fd,F_SETFL,newflag);
+	<加错误判断>		
+}
+void del_fl(int fd,int flags)
+{
+	int oldflag = fcntl(fd,F_GETFL);
+	<加错误判断>
+	int newflag = oldflag & ~flags;
+	fcntl(fd,F_SETFL,newflag);
+	<加错误判断>	
+}
+——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
+10、ioctl 函数
+头文件
+#include <unistd.h>
+操作不同的设备时要加上不同设备的头文件 #include <linux/cdrom.h>
+int ioctl(int filedes,int request,...)
+返回值 出错返回-1
+example: ioctl(fd,CDROMEJECT);
+
+——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
+11、select 函数
+头文件
+#include <unistd.h>
+#include <sys/time.h> //含有 timeval 结构体
+int select(int numfiledes,fd_set *readfds,fd_set *writefds,fd_set *exceptfds,struct timevel *timeout)
+返回值 准备就绪的描述符数 如果超时则返回 0 如果出错则返回 -1
+struct timevel 
+{
+	long tv_sec; 秒
+        long tv_usec; 微秒 1秒=10^6微秒
+}
+fd_set //文件描述符集
+FD_ZERO(fd_set *set); //
+FD_SET(int fd,fd_set *set); //
+FD_CLR(int fd,fd_set *set);
+FD_ISSET(int fd,fd_set *set);	
+example: 
+<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+fd_set fset;
+FD_ZERO(&fset);
+FD_SET(STDIN_FILENO,&fset);
+struct timevel vel = {};
+memset(0,&vel,sizeof(timevel));
+vel.tv_sec  = 5;
+vel.tv_usec = 0;
+int ret;
+while((ret=select(STDIN_FILENO+1,&fset,NULL,NULL,&vel))!=-1)
+{
+	if(FD_ISSET(&vel,STDIN_FILENO))
+              {
+                 read;
+		 write;
+              }else
+              {
+                printf("timeout\n");
+              }
+        FD_ZERO(&fset);
+	FD_SET(STDIN_FILENO,&fset);
+    	vel.tv_sec = 5;
+        vel.tv_usec = 0;
+}
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
+12、通过fcntl函数实现文件锁
+struct flock {
+ short l_type;
+ off_t l_start;
+ short l_whence;
+ off_t l_len;
+ pid_t l_pid;
+}
+F_RDLCK 共享性读锁 F_WRLCK 独占性写锁 F_UNLCK
+struct flock flock;
+flock.l_type=F_RDLCK;
+int lock_arg(int fd,int cmd,int type,off_t start,int whence,off_t len)
+{
+	struct flock flock;
+        flock.l_type=type;
+     	flock.l_start=start;
+        flock.l_whence=whence;
+        flock.l_len=len;
+	return fcntl(fd,cmd,&flock);
+}
+可以通过定义各种宏来帮助使用锁机制
+#define SET_RDLCK(fd) lock(fd,F_SETLK,F_RDLCK,0,SEEK_SET,0);
+#define SET_WRLCK(fd) lock(fd,F_SETLK,F_WRLCK,0,SEEK_SET,0);
+#define SET_UNLCK(fd) lock(fd,F_SETLK,F_UNLCK,0,SEEK_SET,0);
+
+——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
+13、mmap 存储映射函数
+头文件 
+#include <sys/mman.h>
+void *mmap(void *addr,size_t len,int port,int flag,int fileds,off_t off)
+返回值 成功返回映射区起始地址，出错返回-1
+addr：映射区域首地址通常设置为0  len：需要映射的字节数  off：映射字节在文件中的偏移量  prot（保护）：PROT_READ PROT_WRITE PROT_EXEC PROT_NONE
+flag: MAP_FIXED 返回地址必须等于addr MAP_SHARED:存储操作立刻修改映射文件的内容 MAP_PRIVATE 存储操作创建映射文件的副本，并对副本读写
+int munmap(caddr_t addr,size_t len)
+返回值 成功返回0出错返回-1
+example:
+使用mmap时首先要确保要映射的文件是读写打开的 O_RDWR
+其次要确保文件的大小比要映射的内容大 通过找一个比较大的文件或者设置空洞文件来实现 
+建立一个指针
+char *ptr
+ptr = (char *)mmap(0,SIZE,PORT_READ|PORD_WRITE,MAP_SHARED,0)
+通过对ptr指针操作进行文件映射
+if(munmap(ptr,SIZE)<0)
+ <错误判断>
+
+————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
+
+
+
+
+                                         >>>>>>>>>>>>>>>>>>>>>  文件和目录   <<<<<<<<<<<<<<<<<<<
+
+
+
+
+——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
+14、stat fstat lstat 函数 
+头文件
+#include <sys/stat>
+struct stat 结构体
+{
+	mode_t st_mode;                          //权限
+	ino_t  st_ino;                           //i节点数
+        dev_t  st_dev;                           //设备号
+	dev_t  st_rdev;                          //某驱动的第某个设备
+	nlink_t st_nlink;                        //硬链接数
+	uid_t  st_uid;                           //用户id
+        gid_t  st_gid;                           //组id
+	off_t  st_size;                          //文件大小
+	time_t st_atime;                         // access time
+	time_t st_mtime;			 // modify time
+	time_t st_ctime;                         // change time
+	blksize_t st_blksize;                    // 块大小
+	blkcnt_t st_blocks;                      //块数目
+        
+};
+int stat(const char *restric pathname,struct stat *restric pathname buf);
+int fstat(int filedes,struct stat *restric pathname buf);
+int lstat(const char *restric pathname,struct stat *restric pathname buf);
+该函数用来获取文件的的属性，将文件的属性传递给stat结构体中。
+lstat将获得链接的属性，stat将会获得链接所指向的文件属性。
+struct stat st;
+stat(pathname,&st);
+st.st_mode;
+七大文件 S_ISREG() S_ISDIR() S_ISCHR() S_ISBLK() S_ISFIFO() S_ISSOCK() S_ISLNK()
+文件权限位 S_IRWXU S_IRWXG S_IRWXO S_IRUSR S_IWUSR S_IXUSR S_IRGRP S_IWGRP S_IXGRP S_IROTH S_IWOTH S_IXOTH
+ S_ISUID（拥有者置s位） S_ISGID（同组人置s位） S_ISVTX（其他人置粘着位）
+
+——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
+15、access 函数
+头文件
+#include <unistd.h>
+int access(const char *pathname,int mode);
+该函数用于验证用户能否访问一个给定的文件
+mode 取值 ：Ｒ_OK W_OK X_OK F_OK
+example: 
+if(access(pathname,mode)!= 0)
+{
+	fprintf("can not access this file !\n");
+}
+
+——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
+16、

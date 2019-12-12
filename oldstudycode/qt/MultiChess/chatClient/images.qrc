@@ -1,0 +1,11 @@
+<RCC>
+    <qresource prefix="/">
+        <file>rubbit_2.png</file>
+        <file>tortoise_2.png</file>
+        <file>apple.png</file>
+        <file>google.png</file>
+        <file>black.png</file>
+        <file>white.png</file>
+        <file>board.png</file>
+    </qresource>
+</RCC>

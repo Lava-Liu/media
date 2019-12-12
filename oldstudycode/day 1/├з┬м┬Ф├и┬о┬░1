@@ -1,0 +1,73 @@
+kernel:
+提供了操作系统的机制，忽略上层使用方式。
+shell：
+操作Linux系统最通用的一种方式
+fail system：
+提供磁盘文件的操作接口
+opt:存储用户安装的的程序和或者自定义安装的第三方的库文件，第三方文本文档。
+etc:存放系统的配置文件
+passwd：
+shadow：
+dev：系统的设备目录
+usr：安装用户程序或者用户命令的默认目录
+kernel：内存管理程序等~内核程序
+var:存放系统临时变量的位置
+export：已经不存在
+home：登陆用户的家目录
+g++
+sudo apt-get install/【auto】remove g++
+shell启动方式
+1.通过终端应用程序启动~
+2.系统shell 使用组合建ctrl alt f1
+
+
+
+
+telnet ：远程登录Linux系统
+telnet  +服务器地址172.16.0.107
+logout 或者exit
+
+
+修改密码：
+passwd
+input your old password：
+input your new password：
+more或者cat 察看一个文件内容
+ls 列举目录中的内容
+/etc/passwd：用户配置文件，内部记录了所有用户的用户名和密码信息
+1.用户名
+2.密码（x代替放在shadow中）
+3.UID 唯一 用来帮助系统识别用户名 对登陆的用户进行权限控制
+4.GID   组ID 对组内的用户进行权限上限控制
+5.登陆用户的全名或详细信息
+6.用户的家目录所在位置
+7。用户登陆时所采取的shell
+[/bin/false】禁止登陆
+/bin/bash Bourne again shell
+/bin/sh Bourne shell
+
+切换到管理员目录
+ sudo -s
+提示：输入密码：输入登陆操作系统时的密码
+passwd
+提示：输入新的UNIX密码：
+确认UNIX密码：
+（提示密码设置成功）
+exit
+
+===============================
+sudo passwd
+输入old UNIX密码：
+输入新的UNIX密码：
+确认UNIX密码：
+===============================
+$su
+提示：输入密码：
+提示符变成#
+shado+
+w
+
+2*密文
+3.
+
+

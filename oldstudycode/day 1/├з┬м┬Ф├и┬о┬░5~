@@ -1,0 +1,128 @@
+
+l970 Unix V7 --->  shell 第一版本的shell进入使用阶段
+stephen Bourne 开发
+1979年正式推出Bourne shell ---》作为标准shell使用
+操作简单，工作效率高
+美国加州大学伯克利分校对shell 重新进行开发   使用c编写出c shell
+增强了交互功能 添加了额外的功能：例如历史命令记录，别名，作业控制 自动补全命令
+
+David korn ==》korn shell 
+添加了特殊的调试功能，正则表达式通配符。
+
+GUN计划（非洲羚羊计划）
+使用bourne again shell 替代 Bourne shell 
+
+shell的定义
+    解释性语言
+
+shell的职责：
+1 翻译解释用户输入的命令
+2 处理信号 创建进程 后台控制
+3 处理特殊符号 比如元字符 通配符
+4 操作系统调度以及自动管理（体现在配置文件）
+5 shell脚本 计划任务 
+
+
+进程：操作系统进程资源分配的最小的哪位
+      （执行过程）
+     程序：一段代码，存在与一个静态的文件中
+     进程：一段代码动态的在内存当中的体现
+shell 当中的命令类型 ：
+内部命令 ：把命令的元码集成到系统内核的代码当中
+           随着操作系统的启动自动加载到内存中
+           运行效率快 执行效率高，内部命令在使用过程中不会创建新的进程。
+           源码逻辑不能太复杂 更不能出现递归 
+           cd
+           echo
+外部命令 :存在于系统中的某个指定目录当中 /bin/***
+         我们在调用时才会被加载到内存中，执行效率比较低，需要开辟一个新的进程
+         使用起来比较灵活  
+          ls  tar
+察看命令是内部命令还是外部命令 ：
+           type  command
+
+
+
+
+linux启动过程
+系统加电
+启动BIOS程序（固化在主板上）boot input output system
+1.硬件自检测
+2.设置默认的硬件的初始状态
+启动系统引导（）boot loader
+（Linux 中BIOS是bootloader的一部分）
+1.设备的初始值设置
+ 内存初始化（设置初始值）
+2。获取系统时钟
+3.引导操作系统程序
+启动系统的init进程 1号进程  如果启动失败启动0号进程
+   1.设置系统环境变量
+    搜索调用指定的配置脚本
+    即启动系统shell：（Linux 启动七个 ）
+    ctrol +Alt +Fn （n：1-7【n=7】）
+
+启动Login模块
+  输入用户名和密码
+  启动一个新的shell
+    校验用户名和密码
+    加载对应用户配置
+    
+
+按类型分shell的登录的方式：
+   登录式shell：login shell（启动的系统shell）
+   非登陆shell： no-login shell（）
+        ftp：启动时启动非登陆shell （配置中指定的路径方式，或者指定的用户才可以登陆shell）
+            保护了数据的安全
+      交互式非登陆shell：我们使用的终端
+      非交互式shell    :shell脚本
+
+登陆shell时启动的配置文件：
+ 系统shell 和root用户启动/etc/profile配置文件
+  普通用户启动的shell配置文件：（按顺序搜索）
+执行找到的第一个配置文件，
+~/.bash_profile
+~/.bash_longin
+~/.profile
+(我们当前的系统启动的是~/.bashrc)
+退出shell时候，调用~/.bash_logout
+
+变量设置的方式：
+ 变量名=value
+shell中的变量类型：弱类型
+$ 取变量的内容
+自定义的变量 ：
+    数字、字母、下划线
+    变量名时：开头只能是字母或者下划线
+    数字开头的变量为系统sell变量
+变量的赋值：
+    普通形式：var=value
+    值为字符串（hellow world） ：
+     1、var=“hellow world”
+     2、 var=‘hellow world’
+     3、 var=string 注“=”前后不能出现空格必须紧挨着写
+
+清楚一个变量：unset var
+申明一个变量为只读变量：readonly var
+                       readonly var=Hello
+                   或：var=hello
+                       readonly var
+标准定义方式：
+declare [-ops] var=value
+-ops:
+-x   定义并初始化一个变量
+-r   定义一个只读变量
+-u   清除一个变量
+
+在脚本中使用declare 来定义变量
+      shell环境变量默认分隔符：
+ var=a:b:c:d
+ echo $var======>a:b:c:d
+ IFS=:
+ echo $var========>a b c d
+ IFS=' '
+  echo $var======>a:b:c:d
+
+    
+
+
+  

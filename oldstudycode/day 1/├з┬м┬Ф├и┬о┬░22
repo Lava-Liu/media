@@ -1,0 +1,56 @@
+[]
+()
+.
+->
+一号优先级别
+*
+&
+指针运算符号取地址
+umask 掩码
+|按位或
+
+当前文件偏移 --》 绝对偏移
+默认打开一个文件时 ，偏移为0
+read
+off_t signed int 
+
+O_APPEND
+  修改write写入操作，使得每次writ操作都会在文件的尾部进行追加操作
+   与lseek无关，此时lseek操作对write无影响，但对read有影响
+
+
+
+	if(open() < 0)
+    	{
+		creat();
+	}
+dup拷贝的文件描述符与拷贝钱的文件描述符共享同一个文件表项
+ 文件当前偏移
+ 文件状态标志
+ 等等皆共享
+
+fcntl（）；
+F_GETFL 获取当前文件描述符的状态标志
+    O_CREAT O_TRUNC 不能被获取在open函数调用之后失效 O_RDONLY 在检测时判断即不是WRONLY也不是RDWR 即为RDONLY
+F_SETFL 设置当前文件描述符的标识
+不能直接设置某一个状态标志
+
+不能设置读写的状态
+O_RDONLY
+O_WEONLY
+O_RDWR
+O_CREAD
+O_TRUNC
+首先
+int flags = fcntl（fd,F_GETFL）;
+int newflags = flags|O_APPEND;
+fcntl(fd,F_SETFL,newflags);
+取消
+inr newflags = flags & ~O_APPEND;
+fcntl(fd,F_SETFL,newflags);
+
+
+
+
+
+

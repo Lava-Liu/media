@@ -1,0 +1,66 @@
+函数的递归调用
+1.求n的阶乘
+
+int factorial（int n）
+{ int i;
+  int nul=1
+  for(i=1;i<=n;i++)
+{
+	nul *=i;
+}
+	return nul;
+}
+
+int factorial(int n)
+{
+	if(n==1)return 1;
+	return n*factorial(n-1);
+}
+int rubbit(int n)
+{
+	if(n==
+
+
+
+
+快速排序：
+2 4 3 8 7 19 6
+
+
+2 4 3 6 7 19 8
+}
+
+
+
+找基准点 pivot
+把第一个元素 基准点 最后一个元素 按顺序排好
+把基准点跟最后一个元素交换
+1--》 《--j
+a[i] > pivot
+a[j] < pivot
+交换a[j] a[i]
+交换a[i]he a[end]
+可变参数列表：
+int average (int n_value,...)	vi
+
+
+
+结构体：
+
+struct book
+{
+	char bk_name[20];
+	char bk_number[20];
+	double price;
+	int number;
+};
+
+
+2 struct student
+{
+	int 
+}
+
+
+
+

@@ -1,0 +1,61 @@
+二维数组的访问：
+1/下标方式 a[10][10]
+row = i;
+col = j;
+a[i][j]
+
+2.当作为参数传递给函数的时候
+联系一维数组：
+    int b[10]
+b[1] 与 *（b+1）
+当二维数组作为参数传递给函数的时候
+void func(int *p ,int row ,int col)
+{}
+row:i:col:j
+*(p+i*col+j)
+void func(int p[][4], int row)
+{
+}
+void func{int （*p）[4],int row}
+:在把二维数组作为参数进行传递的时候
+int p[][4]本质上就是 int (*p)[4]
+所以以上两种方式一样
+所以访问的时候正常能访问二维数组元素的方法都可以：
+1.下标方式 p[i][j]
+2,强制类型转换的方式：
+*（（int*）（p+i）+j）
+3,二维数组默认的隐式类型转换的访问方式：
+*（*（p+i）+j）
+为了提高元素的查找效率
+哈希表
+hash table表/散列表
+int (*p)[];//数组指针
+
+int *p[4];//指针数组
+
+
+
+
+entable(e)//input a element
+checktable(e)//check some element is true
+remove(e)// delete some element
+size()//how many element
+is_empty();
+is_full();
+out_table() //echo all element
+
+
+
+
+
+字符数组；
+char *str = "helloworld";
+char str[] = {'h','e','l','l','o'}
+char str[] = {'h','e','l','l','o','\0'}
+printf("str = %s\n",str);
+char str[] = "hello";
+
+
+
+sizeof(str)
+strlen(str)

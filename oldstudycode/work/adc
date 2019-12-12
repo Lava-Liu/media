@@ -1,0 +1,20 @@
+Script started on 2013年07月17日 星期三 14时07分51秒
+]0;silence@ubuntu: ~/worksilence@ubuntu:~/work$ date
+2013年 07月 17日 星期三 14:07:52 CST
+]0;silence@ubuntu: ~/worksilence@ubuntu:~/work$ cal
+      七月 2013         
+日 一 二 三 四 五 六  
+    1  2  3  4  5  6  
+ 7  8  9 10 11 12 13  
+14 15 16 [7m17[27m 18 19 20  
+21 22 23 24 25 26 27  
+28 29 30 31           
+                      
+]0;silence@ubuntu: ~/worksilence@ubuntu:~/work$ ls
+a   aba  adc      [0m[01;31mall.tar.bz2[0m  a.txt  b      c.txt  file.h2  [40;31;01mfile.s1[0m  [40;31;01mfile.s3[0m  [01;34mremember[0m  typescript
+a~  abc  [01;31mall.tar[0m  [01;31mall.tar.gz[0m   [01;31ma.zip[0m  b.txt  [01;34mdir6[0m   file.h3  [40;31;01mfile.s2[0m  hfile    [01;34mtest[0m
+]0;silence@ubuntu: ~/worksilence@ubuntu:~/work$ more adc
+]0;silence@ubuntu: ~/worksilence@ubuntu:~/work$ exit
+exit
+
+Script done on 2013年07月17日 星期三 14时08分08秒

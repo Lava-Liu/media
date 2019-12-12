@@ -1,0 +1,35 @@
+int *p=NULL;
+*p==//NULL
+int *p=(int *)malloc(sizeof(int));
+free(p);
+p=NULL;
+
+int f()
+int (*f)();
+int (*f[])
+
+函数指针；
+语法：
+int fun(int );
+int (*pf)(int );
+pf=&fun;
+//pf = fun;
+fun(11);
+pf(11);
+(*pf)(11);
+typedef void (*pfun)(char *);
+回调函数：
+比如：要求将所有学生的信息进行排序：
+	但是不确定按学号、年龄还是成绩
+则可用函数指针实现一个统一的接口，在调用的时候用同一个借口根据需要实现类似的功能；
+同一模块的相同（类似）功能，通过把函数指针作为参数传给接口函数
+函数指针数组：达到用一个借口函数可以根据不同的需要实现类似的功能
+int a[][];
+int (*pa)[10];
+
+
+函数指针数组的指针：
+char *si="Jame";
+char *s[]={s1,s2,s3};
+
+

@@ -1,0 +1,1715 @@
+# ./configure 
+ALL_COMPONENTS='
+    
+
+    h264_parser
+    
+    
+    
+    
+    
+    
+    
+    
+'
+ARCH_EXT_LIST='
+    
+    armv5te
+    armv6
+    armv6t2
+    armv8
+    neon
+    vfp
+    vfpv3
+    setend
+
+    
+    altivec
+    dcbzl
+    ldbrx
+    ppc4xx
+    vsx
+
+    
+    
+    amd3dnow
+    amd3dnowext
+    avx
+    avx2
+    fma3
+    fma4
+    mmx
+    mmxext
+    sse
+    sse2
+    sse3
+    sse4
+    sse42
+    ssse3
+    xop
+
+    cpunop
+    i686
+
+    
+    mipsfpu
+    mips32r2
+    mipsdspr1
+    mipsdspr2
+
+    loongson
+'
+ARCH_EXT_LIST_ARM='
+    armv5te
+    armv6
+    armv6t2
+    armv8
+    neon
+    vfp
+    vfpv3
+    setend
+'
+ARCH_EXT_LIST_MIPS='
+    mipsfpu
+    mips32r2
+    mipsdspr1
+    mipsdspr2
+'
+ARCH_EXT_LIST_PPC='
+    altivec
+    dcbzl
+    ldbrx
+    ppc4xx
+    vsx
+'
+ARCH_EXT_LIST_X86='
+    
+    amd3dnow
+    amd3dnowext
+    avx
+    avx2
+    fma3
+    fma4
+    mmx
+    mmxext
+    sse
+    sse2
+    sse3
+    sse4
+    sse42
+    ssse3
+    xop
+
+    cpunop
+    i686
+'
+ARCH_EXT_LIST_X86_SIMD='
+    amd3dnow
+    amd3dnowext
+    avx
+    avx2
+    fma3
+    fma4
+    mmx
+    mmxext
+    sse
+    sse2
+    sse3
+    sse4
+    sse42
+    ssse3
+    xop
+'
+ARCH_FEATURES='
+    aligned_stack
+    fast_64bit
+    fast_clz
+    fast_cmov
+    local_aligned_8
+    local_aligned_16
+    local_aligned_32
+    simd_align_16
+'
+ARCH_LIST='
+    aarch64
+    alpha
+    arm
+    avr32
+    avr32_ap
+    avr32_uc
+    bfin
+    ia64
+    m68k
+    mips
+    mips64
+    parisc
+    ppc
+    ppc64
+    s390
+    sh4
+    sparc
+    sparc64
+    tilegx
+    tilepro
+    tomi
+    x86
+    x86_32
+    x86_64
+'
+AS_C='-c'
+AS_O='-o $@'
+ATOMICS_LIST='
+    atomics_gcc
+    atomics_suncc
+    atomics_win32
+'
+AVDEMUXER_LIST=''
+AVDRIVER_LIST=''
+AVFILTER_LIST=''
+AVINDEV_LIST=''
+AVMUXER_LIST=''
+AVOUTDEV_LIST=''
+AVPARSER_LIST='h264_parser'
+AVPROTOCOL_LIST=''
+AVSERVER_LIST=''
+BUILTIN_LIST='
+    atomic_cas_ptr
+    atomic_compare_exchange
+    machine_rw_barrier
+    MemoryBarrier
+    mm_empty
+    rdtsc
+    sarestart
+    sync_val_compare_and_swap
+'
+CC_C='-c'
+CC_E='-E -o $@'
+CC_O='-o $@'
+CMDLINE_APPEND='
+    extra_cflags
+    extra_cxxflags
+    host_cppflags
+'
+CMDLINE_SELECT='
+    
+    
+    armv5te
+    armv6
+    armv6t2
+    armv8
+    neon
+    vfp
+    vfpv3
+    setend
+
+    
+    altivec
+    dcbzl
+    ldbrx
+    ppc4xx
+    vsx
+
+    
+    
+    amd3dnow
+    amd3dnowext
+    avx
+    avx2
+    fma3
+    fma4
+    mmx
+    mmxext
+    sse
+    sse2
+    sse3
+    sse4
+    sse42
+    ssse3
+    xop
+
+    cpunop
+    i686
+
+    
+    mipsfpu
+    mips32r2
+    mipsdspr1
+    mipsdspr2
+
+    loongson
+
+    
+    
+    avparsers
+    avprotocols
+    avdevices
+    avindevs
+    avoutdevs
+    avmuxers
+    avdemuxers
+    avdrivers
+    avsystems
+    avconfigs
+    avcfiles
+    avservers
+    avfilters
+
+    
+    doc
+    htmlpages
+    manpages
+    podpages
+    txtpages
+
+    
+
+    
+    iconv
+    zlib
+    gnutls
+    libonvifc
+    libavformat
+    libjansson
+    libavfs
+    his3515
+    his3535
+    his3518
+    his3516a
+    openssl
+
+    
+    ftrapv
+    gray
+    hardcoded_tables
+    runtime_cpudetect
+    safe_bitstream_reader
+    shared
+    small
+    static
+    swscale_alpha
+
+    
+
+    
+    gpl
+    nonfree
+    version3
+
+    
+    avutil
+    avmedia
+    avcodec
+    avdevice
+    avconfig
+    avsystem
+    avserver
+    avprotocol
+    avfilter
+
+    
+
+    
+    dct
+    dwt
+    error_resilience
+    faan
+    fast_unaligned
+    fft
+    lsp
+    lzo
+    mdct
+    pixelutils
+    network
+    rdft
+
+    fontconfig
+    incompatible_libav_abi
+    memalign_hack
+    memory_poisoning
+    neon_clobber_test
+    pic
+    pod2man
+    raise_major
+    thumb
+    xmm_clobber_test
+
+    
+    inline_asm
+    symver
+    yasm
+
+    
+    pthreads
+    os2threads
+    w32threads
+
+    asm
+    cross_compile
+    debug
+    extra_warnings
+    logging
+    lto
+    optimizations
+    rpath
+    stripping
+'
+CMDLINE_SET='
+    
+    bindir
+    datadir
+    docdir
+    incdir
+    libdir
+    mandir
+    prefix
+    shlibdir
+
+    ar
+    arch
+    as
+    assert_level
+    build_suffix
+    cc
+    cpu
+    cross_prefix
+    cxx
+    dep_cc
+    doxygen
+    extra_version
+    gas
+    host_cc
+    host_cflags
+    host_ld
+    host_ldflags
+    host_libs
+    host_os
+    install
+    ld
+    logfile
+    malloc_prefix
+    nm
+    optflags
+    pkg_config
+    pkg_config_flags
+    progs_suffix
+    random_seed
+    ranlib
+    samples
+    strip
+    sws_max_filter_size
+    sysinclude
+    sysroot
+    target_exec
+    target_os
+    target_path
+    target_samples
+    tempprefix
+    toolchain
+    valgrind
+    yasmexe
+'
+COLORTERM='gnome-terminal'
+COMPONENT_LIST='
+    avparsers
+    avprotocols
+    avdevices
+    avindevs
+    avoutdevs
+    avmuxers
+    avdemuxers
+    avdrivers
+    avsystems
+    avconfigs
+    avcfiles
+    avservers
+    avfilters
+'
+CONFIG_EXTRA='
+    aandcttables
+    ac3dsp
+    audio_frame_queue
+    audiodsp
+    blockdsp
+    bswapdsp
+    cabac
+    dvprofile
+    exif
+    faandct
+    faanidct
+    fdctdsp
+    frame_thread_encoder
+    gcrypt
+    golomb
+    gplv3
+    h263dsp
+    h264chroma
+    h264dsp
+    h264pred
+    h264qpel
+    hpeldsp
+    huffman
+    huffyuvdsp
+    huffyuvencdsp
+    idctdsp
+    iirfilter
+    intrax8
+    lgplv3
+    llauddsp
+    llviddsp
+    lpc
+    me_cmp
+    mpeg_er
+    mpegaudio
+    mpegaudiodsp
+    mpegvideo
+    mpegvideoenc
+    nettle
+    pixblockdsp
+    qpeldsp
+    rangecoder
+    riffdec
+    riffenc
+    rtpdec
+    rtpenc_chain
+    sinewin
+    startcode
+    tpeldsp
+    videodsp
+    vp3dsp
+    wma_freqs
+'
+CONFIG_LIST='
+    
+    avparsers
+    avprotocols
+    avdevices
+    avindevs
+    avoutdevs
+    avmuxers
+    avdemuxers
+    avdrivers
+    avsystems
+    avconfigs
+    avcfiles
+    avservers
+    avfilters
+
+    
+    doc
+    htmlpages
+    manpages
+    podpages
+    txtpages
+
+    
+
+    
+    iconv
+    zlib
+    gnutls
+    libonvifc
+    libavformat
+    libjansson
+    libavfs
+    his3515
+    his3535
+    his3518
+    his3516a
+    openssl
+
+    
+    ftrapv
+    gray
+    hardcoded_tables
+    runtime_cpudetect
+    safe_bitstream_reader
+    shared
+    small
+    static
+    swscale_alpha
+
+    
+
+    
+    gpl
+    nonfree
+    version3
+
+    
+    avutil
+    avmedia
+    avcodec
+    avdevice
+    avconfig
+    avsystem
+    avserver
+    avprotocol
+    avfilter
+
+    
+
+    
+    dct
+    dwt
+    error_resilience
+    faan
+    fast_unaligned
+    fft
+    lsp
+    lzo
+    mdct
+    pixelutils
+    network
+    rdft
+
+    fontconfig
+    incompatible_libav_abi
+    memalign_hack
+    memory_poisoning
+    neon_clobber_test
+    pic
+    pod2man
+    raise_major
+    thumb
+    xmm_clobber_test
+'
+CXX_C='-c'
+CXX_O='-o $@'
+DBUS_SESSION_BUS_ADDRESS='unix:abstract=/tmp/dbus-lLBDttZzvW,guid=21850d462da9fafd4d49d33a00000086'
+DEFAULTS_PATH='/usr/share/gconf/ubuntu-2d.default.path'
+DEPCMD='$(DEP$(1)) $(DEP$(1)FLAGS) $($(1)DEP_FLAGS) $< | sed -e "/^\#.*/d" -e "s,^[[:space:]]*$(*F)\\.o,$(@D)/$(*F).o," > $(@:.o=.d)'
+DEPFLAGS='-MM'
+DESKTOP_SESSION='ubuntu-2d'
+DISPLAY=':0.0'
+DOCUMENT_LIST='
+    doc
+    htmlpages
+    manpages
+    podpages
+    txtpages
+'
+E1='0'
+E2='2'
+EXAMPLE_LIST='
+'
+EXTERNAL_LIBRARY_LIST='
+    iconv
+    zlib
+    gnutls
+    libonvifc
+    libavformat
+    libjansson
+    libavfs
+    his3515
+    his3535
+    his3518
+    his3516a
+    openssl
+'
+FEATURE_LIST='
+    ftrapv
+    gray
+    hardcoded_tables
+    runtime_cpudetect
+    safe_bitstream_reader
+    shared
+    small
+    static
+    swscale_alpha
+'
+FULLNAME='$(NAME)$(BUILDSUF)'
+GDMSESSION='ubuntu-2d'
+GNOME_DESKTOP_SESSION_ID='this-is-deprecated'
+GNOME_KEYRING_CONTROL='/tmp/keyring-9aed6x'
+GNOME_KEYRING_PID='1679'
+GPG_AGENT_INFO='/tmp/keyring-9aed6x/gpg:0:1'
+GTK_IM_MODULE='fcitx'
+HAVE_LIST='
+    
+    
+    armv5te
+    armv6
+    armv6t2
+    armv8
+    neon
+    vfp
+    vfpv3
+    setend
+
+    
+    altivec
+    dcbzl
+    ldbrx
+    ppc4xx
+    vsx
+
+    
+    
+    amd3dnow
+    amd3dnowext
+    avx
+    avx2
+    fma3
+    fma4
+    mmx
+    mmxext
+    sse
+    sse2
+    sse3
+    sse4
+    sse42
+    ssse3
+    xop
+
+    cpunop
+    i686
+
+    
+    mipsfpu
+    mips32r2
+    mipsdspr1
+    mipsdspr2
+
+    loongson
+
+    armv5te_external
+armv6_external
+armv6t2_external
+armv8_external
+neon_external
+vfp_external
+vfpv3_external
+setend_external
+altivec_external
+dcbzl_external
+ldbrx_external
+ppc4xx_external
+vsx_external
+amd3dnow_external
+amd3dnowext_external
+avx_external
+avx2_external
+fma3_external
+fma4_external
+mmx_external
+mmxext_external
+sse_external
+sse2_external
+sse3_external
+sse4_external
+sse42_external
+ssse3_external
+xop_external
+cpunop_external
+i686_external
+mipsfpu_external
+mips32r2_external
+mipsdspr1_external
+mipsdspr2_external
+loongson_external
+    armv5te_inline
+armv6_inline
+armv6t2_inline
+armv8_inline
+neon_inline
+vfp_inline
+vfpv3_inline
+setend_inline
+altivec_inline
+dcbzl_inline
+ldbrx_inline
+ppc4xx_inline
+vsx_inline
+amd3dnow_inline
+amd3dnowext_inline
+avx_inline
+avx2_inline
+fma3_inline
+fma4_inline
+mmx_inline
+mmxext_inline
+sse_inline
+sse2_inline
+sse3_inline
+sse4_inline
+sse42_inline
+ssse3_inline
+xop_inline
+cpunop_inline
+i686_inline
+mipsfpu_inline
+mips32r2_inline
+mipsdspr1_inline
+mipsdspr2_inline
+loongson_inline
+    
+    aligned_stack
+    fast_64bit
+    fast_clz
+    fast_cmov
+    local_aligned_8
+    local_aligned_16
+    local_aligned_32
+    simd_align_16
+
+    
+    atomics_gcc
+    atomics_suncc
+    atomics_win32
+
+    
+    atomic_cas_ptr
+    atomic_compare_exchange
+    machine_rw_barrier
+    MemoryBarrier
+    mm_empty
+    rdtsc
+    sarestart
+    sync_val_compare_and_swap
+
+    
+    inline_asm
+    symver
+    yasm
+
+    
+    bigendian
+    fast_unaligned
+    incompatible_libav_abi
+
+    
+    alsa_asoundlib_h
+    altivec_h
+    arpa_inet_h
+    asm_types_h
+    cdio_paranoia_h
+    cdio_paranoia_paranoia_h
+    CL_cl_h
+    dev_bktr_ioctl_bt848_h
+    dev_bktr_ioctl_meteor_h
+    dev_ic_bt8xx_h
+    dev_video_bktr_ioctl_bt848_h
+    dev_video_meteor_ioctl_meteor_h
+    direct_h
+    dlfcn_h
+    dxva_h
+    ES2_gl_h
+    gsm_h
+    io_h
+    mach_mach_time_h
+    machine_ioctl_bt848_h
+    machine_ioctl_meteor_h
+    malloc_h
+    openjpeg_1_5_openjpeg_h
+    OpenGL_gl3_h
+    poll_h
+    sndio_h
+    soundcard_h
+    sys_mman_h
+    sys_param_h
+    sys_resource_h
+    sys_select_h
+    sys_soundcard_h
+    sys_time_h
+    sys_un_h
+    sys_videoio_h
+    termios_h
+    udplite_h
+    unistd_h
+    windows_h
+    winsock2_h
+
+    
+    intrinsics_neon
+
+    
+    atanf
+    atan2f
+    cbrt
+    cbrtf
+    cosf
+    exp2
+    exp2f
+    expf
+    isinf
+    isnan
+    ldexpf
+    llrint
+    llrintf
+    log2
+    log2f
+    log10f
+    lrint
+    lrintf
+    powf
+    rint
+    round
+    roundf
+    sinf
+    trunc
+    truncf
+
+    
+    access
+    aligned_malloc
+    clock_gettime
+    closesocket
+    CommandLineToArgvW
+    CoTaskMemFree
+    CryptGenRandom
+    dlopen
+    fcntl
+    flt_lim
+    fork
+    getaddrinfo
+    gethrtime
+    getopt
+    GetProcessAffinityMask
+    GetProcessMemoryInfo
+    GetProcessTimes
+    getrusage
+    getservbyport
+    GetSystemTimeAsFileTime
+    gettimeofday
+    glob
+    glXGetProcAddress
+    gmtime_r
+    inet_aton
+    isatty
+    jack_port_get_latency_range
+    kbhit
+    localtime_r
+    lzo1x_999_compress
+    mach_absolute_time
+    MapViewOfFile
+    memalign
+    mkstemp
+    mmap
+    mprotect
+    nanosleep
+    PeekNamedPipe
+    posix_memalign
+    pthread_cancel
+    sched_getaffinity
+    SetConsoleTextAttribute
+    setmode
+    setrlimit
+    Sleep
+    strerror_r
+    sysconf
+    sysctl
+    usleep
+    VirtualAlloc
+    wglGetProcAddress
+
+    
+    pthreads
+    os2threads
+    w32threads
+
+    
+    as_dn_directive
+    as_func
+    asm_mod_q
+    attribute_may_alias
+    attribute_packed
+    ebp_available
+    ebx_available
+    gnu_as
+    gnu_windres
+    ibm_asm
+    inline_asm_labels
+    inline_asm_nonlocal_labels
+    inline_asm_direct_symbol_refs
+    pragma_deprecated
+    rsync_contimeout
+    symver_asm_label
+    symver_gnu_asm
+    vfp_args
+    xform_asm
+    xmm_clobbers
+
+    
+    CONDITION_VARIABLE_Ptr
+    socklen_t
+    struct_addrinfo
+    struct_group_source_req
+    struct_ip_mreq_source
+    struct_ipv6_mreq
+    struct_pollfd
+    struct_rusage_ru_maxrss
+    struct_sctp_event_subscribe
+    struct_sockaddr_in6
+    struct_sockaddr_sa_len
+    struct_sockaddr_storage
+    struct_stat_st_mtim_tv_nsec
+    struct_v4l2_frmivalenum_discrete
+
+    atomics_native
+    dos_paths
+    dxva2api_cobj
+    dxva2_lib
+    libc_msvcrt
+    libdc1394_1
+    libdc1394_2
+    makeinfo
+    makeinfo_html
+    perl
+    pod2man
+    sdl
+    section_data_rel_ro
+    texi2html
+    threads
+    vdpau_x11
+    xlib
+'
+HAVE_LIST_CMDLINE='
+    inline_asm
+    symver
+    yasm
+'
+HAVE_LIST_PUB='
+    bigendian
+    fast_unaligned
+    incompatible_libav_abi
+'
+HEADERS_LIST='
+    alsa_asoundlib_h
+    altivec_h
+    arpa_inet_h
+    asm_types_h
+    cdio_paranoia_h
+    cdio_paranoia_paranoia_h
+    CL_cl_h
+    dev_bktr_ioctl_bt848_h
+    dev_bktr_ioctl_meteor_h
+    dev_ic_bt8xx_h
+    dev_video_bktr_ioctl_bt848_h
+    dev_video_meteor_ioctl_meteor_h
+    direct_h
+    dlfcn_h
+    dxva_h
+    ES2_gl_h
+    gsm_h
+    io_h
+    mach_mach_time_h
+    machine_ioctl_bt848_h
+    machine_ioctl_meteor_h
+    malloc_h
+    openjpeg_1_5_openjpeg_h
+    OpenGL_gl3_h
+    poll_h
+    sndio_h
+    soundcard_h
+    sys_mman_h
+    sys_param_h
+    sys_resource_h
+    sys_select_h
+    sys_soundcard_h
+    sys_time_h
+    sys_un_h
+    sys_videoio_h
+    termios_h
+    udplite_h
+    unistd_h
+    windows_h
+    winsock2_h
+'
+HOME='/home/silence'
+HOSTCC_C='-c'
+HOSTCC_E='-E -o $@'
+HOSTCC_O='-o $@'
+HOSTLD_O='-o $@'
+HWACCEL_LIST='
+'
+IFS=' 	
+'
+INTRINSICS_LIST='
+    intrinsics_neon
+'
+LANG='zh_CN.UTF-8'
+LANGUAGE='zh_CN:zh'
+LC_ALL='C'
+LD_LIB='-l%'
+LD_O='-o $@'
+LD_PATH='-L'
+LESSCLOSE='/usr/bin/lesspipe %s %s'
+LESSOPEN='| /usr/bin/lesspipe %s'
+LIBNAME='$(LIBPREF)$(FULLNAME)$(LIBSUF)'
+LIBPREF='lib'
+LIBRARY_LIST='
+    avutil
+    avmedia
+    avcodec
+    avdevice
+    avconfig
+    avsystem
+    avserver
+    avprotocol
+    avfilter
+'
+LIBSUF='.a'
+LIB_INSTALL_EXTRA_CMD='$$(RANLIB) "$(LIBDIR)/$(LIBNAME)"'
+LICENSE_LIST='
+    gpl
+    nonfree
+    version3
+'
+LOGNAME='silence'
+LS_COLORS='no=00;38;5;244:rs=0:di=00;38;5;33:ln=01;38;5;37:mh=00:pi=48;5;230;38;5;136;01:so=48;5;230;38;5;136;01:do=48;5;230;38;5;136;01:bd=48;5;230;38;5;244;01:cd=48;5;230;38;5;244;01:or=48;5;235;38;5;160:su=48;5;160;38;5;230:sg=48;5;136;38;5;230:ca=30;41:tw=48;5;64;38;5;230:ow=48;5;235;38;5;33:st=48;5;33;38;5;230:ex=01;38;5;64:*.tar=00;38;5;61:*.tgz=01;38;5;61:*.arj=01;38;5;61:*.taz=01;38;5;61:*.lzh=01;38;5;61:*.lzma=01;38;5;61:*.tlz=01;38;5;61:*.txz=01;38;5;61:*.zip=01;38;5;61:*.z=01;38;5;61:*.Z=01;38;5;61:*.dz=01;38;5;61:*.gz=01;38;5;61:*.lz=01;38;5;61:*.xz=01;38;5;61:*.bz2=01;38;5;61:*.bz=01;38;5;61:*.tbz=01;38;5;61:*.tbz2=01;38;5;61:*.tz=01;38;5;61:*.deb=01;38;5;61:*.rpm=01;38;5;61:*.jar=01;38;5;61:*.rar=01;38;5;61:*.ace=01;38;5;61:*.zoo=01;38;5;61:*.cpio=01;38;5;61:*.7z=01;38;5;61:*.rz=01;38;5;61:*.apk=01;38;5;61:*.gem=01;38;5;61:*.jpg=00;38;5;136:*.JPG=00;38;5;136:*.jpeg=00;38;5;136:*.gif=00;38;5;136:*.bmp=00;38;5;136:*.pbm=00;38;5;136:*.pgm=00;38;5;136:*.ppm=00;38;5;136:*.tga=00;38;5;136:*.xbm=00;38;5;136:*.xpm=00;38;5;136:*.tif=00;38;5;136:*.tiff=00;38;5;136:*.png=00;38;5;136:*.svg=00;38;5;136:*.svgz=00;38;5;136:*.mng=00;38;5;136:*.pcx=00;38;5;136:*.dl=00;38;5;136:*.xcf=00;38;5;136:*.xwd=00;38;5;136:*.yuv=00;38;5;136:*.cgm=00;38;5;136:*.emf=00;38;5;136:*.eps=00;38;5;136:*.CR2=00;38;5;136:*.ico=00;38;5;136:*.tex=01;38;5;245:*.rdf=01;38;5;245:*.owl=01;38;5;245:*.n3=01;38;5;245:*.ttl=01;38;5;245:*.nt=01;38;5;245:*.torrent=01;38;5;245:*.xml=01;38;5;245:*Makefile=01;38;5;245:*Rakefile=01;38;5;245:*build.xml=01;38;5;245:*rc=01;38;5;245:*1=01;38;5;245:*.nfo=01;38;5;245:*README=01;38;5;245:*README.txt=01;38;5;245:*readme.txt=01;38;5;245:*.md=01;38;5;245:*README.markdown=01;38;5;245:*.ini=01;38;5;245:*.yml=01;38;5;245:*.cfg=01;38;5;245:*.conf=01;38;5;245:*.c=01;38;5;245:*.cpp=01;38;5;245:*.cc=01;38;5;245:*.log=00;38;5;240:*.bak=00;38;5;240:*.aux=00;38;5;240:*.lof=00;38;5;240:*.lol=00;38;5;240:*.lot=00;38;5;240:*.out=00;38;5;240:*.toc=00;38;5;240:*.bbl=00;38;5;240:*.blg=00;38;5;240:*~=00;38;5;240:*#=00;38;5;240:*.part=00;38;5;240:*.incomplete=00;38;5;240:*.swp=00;38;5;240:*.tmp=00;38;5;240:*.temp=00;38;5;240:*.o=00;38;5;240:*.pyc=00;38;5;240:*.class=00;38;5;240:*.cache=00;38;5;240:*.aac=00;38;5;166:*.au=00;38;5;166:*.flac=00;38;5;166:*.mid=00;38;5;166:*.midi=00;38;5;166:*.mka=00;38;5;166:*.mp3=00;38;5;166:*.mpc=00;38;5;166:*.ogg=00;38;5;166:*.ra=00;38;5;166:*.wav=00;38;5;166:*.m4a=00;38;5;166:*.axa=00;38;5;166:*.oga=00;38;5;166:*.spx=00;38;5;166:*.xspf=00;38;5;166:*.mov=01;38;5;166:*.mpg=01;38;5;166:*.mpeg=01;38;5;166:*.m2v=01;38;5;166:*.mkv=01;38;5;166:*.ogm=01;38;5;166:*.mp4=01;38;5;166:*.m4v=01;38;5;166:*.mp4v=01;38;5;166:*.vob=01;38;5;166:*.qt=01;38;5;166:*.nuv=01;38;5;166:*.wmv=01;38;5;166:*.asf=01;38;5;166:*.rm=01;38;5;166:*.rmvb=01;38;5;166:*.flc=01;38;5;166:*.avi=01;38;5;166:*.fli=01;38;5;166:*.flv=01;38;5;166:*.gl=01;38;5;166:*.m2ts=01;38;5;166:*.divx=01;38;5;166:*.webm=01;38;5;166:*.axv=01;38;5;166:*.anx=01;38;5;166:*.ogv=01;38;5;166:*.ogx=01;38;5;166:'
+MANDATORY_PATH='/usr/share/gconf/ubuntu-2d.mandatory.path'
+MATH_FUNCS='
+    atanf
+    atan2f
+    cbrt
+    cbrtf
+    cosf
+    exp2
+    exp2f
+    expf
+    isinf
+    isnan
+    ldexpf
+    llrint
+    llrintf
+    log2
+    log2f
+    log10f
+    lrint
+    lrintf
+    powf
+    rint
+    round
+    roundf
+    sinf
+    trunc
+    truncf
+'
+OLDPWD='/home/silence/Mr.stream/libavcodec'
+OPTIND='1'
+PATH='/opt/hisi-linux/x86-arm/arm-hisiv300-linux/target/bin:/opt/hisi-linux/x86-arm/arm-hisiv100-linux/target/bin:/opt/hisi-linux/x86-arm/gcc-3.4.3-uClibc-0.9.28/usr/bin:/usr/lib/lightdm/lightdm:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/opt/hisi-linux/x86-arm/gcc-3.4.3-uClibc-0.9.28/bin:/opt/hisi-linux-nptl/arm-hisiv100-linux/target/bin'
+PATHS_LIST='
+    bindir
+    datadir
+    docdir
+    incdir
+    libdir
+    mandir
+    prefix
+    shlibdir
+'
+PPID='3261'
+PROGRAM_LIST='
+'
+PS1='$ '
+PS2='> '
+PS4='+ '
+PWD='/home/silence/Mr.stream'
+SESSION_MANAGER='local/silence-VirtualBox:@/tmp/.ICE-unix/1690,unix/silence-VirtualBox:/tmp/.ICE-unix/1690'
+SHELL='/bin/bash'
+SHFLAGS='-shared -Wl,-soname,$$(@F)'
+SHLVL='1'
+SLIBNAME='$(SLIBPREF)$(FULLNAME)$(SLIBSUF)'
+SLIBNAME_WITH_MAJOR='$(SLIBNAME).$(LIBMAJOR)'
+SLIBNAME_WITH_VERSION='$(SLIBNAME).$(LIAVERSION)'
+SLIBPREF='lib'
+SLIBSUF='.so'
+SLIB_INSTALL_LINKS='$(SLIBNAME_WITH_MAJOR) $(SLIBNAME)'
+SLIB_INSTALL_NAME='$(SLIBNAME_WITH_VERSION)'
+SSH_AGENT_PID='1767'
+SSH_AUTH_SOCK='/tmp/keyring-9aed6x/ssh'
+SUBSYSTEM_LIST='
+    dct
+    dwt
+    error_resilience
+    faan
+    fast_unaligned
+    fft
+    lsp
+    lzo
+    mdct
+    pixelutils
+    network
+    rdft
+'
+SYSTEM_FUNCS='
+    access
+    aligned_malloc
+    clock_gettime
+    closesocket
+    CommandLineToArgvW
+    CoTaskMemFree
+    CryptGenRandom
+    dlopen
+    fcntl
+    flt_lim
+    fork
+    getaddrinfo
+    gethrtime
+    getopt
+    GetProcessAffinityMask
+    GetProcessMemoryInfo
+    GetProcessTimes
+    getrusage
+    getservbyport
+    GetSystemTimeAsFileTime
+    gettimeofday
+    glob
+    glXGetProcAddress
+    gmtime_r
+    inet_aton
+    isatty
+    jack_port_get_latency_range
+    kbhit
+    localtime_r
+    lzo1x_999_compress
+    mach_absolute_time
+    MapViewOfFile
+    memalign
+    mkstemp
+    mmap
+    mprotect
+    nanosleep
+    PeekNamedPipe
+    posix_memalign
+    pthread_cancel
+    sched_getaffinity
+    SetConsoleTextAttribute
+    setmode
+    setrlimit
+    Sleep
+    strerror_r
+    sysconf
+    sysctl
+    usleep
+    VirtualAlloc
+    wglGetProcAddress
+'
+TERM='xterm-256color'
+THREADS_LIST='
+    pthreads
+    os2threads
+    w32threads
+'
+TOOLCHAIN_FEATURES='
+    as_dn_directive
+    as_func
+    asm_mod_q
+    attribute_may_alias
+    attribute_packed
+    ebp_available
+    ebx_available
+    gnu_as
+    gnu_windres
+    ibm_asm
+    inline_asm_labels
+    inline_asm_nonlocal_labels
+    inline_asm_direct_symbol_refs
+    pragma_deprecated
+    rsync_contimeout
+    symver_asm_label
+    symver_gnu_asm
+    vfp_args
+    xform_asm
+    xmm_clobbers
+'
+TYPES_LIST='
+    CONDITION_VARIABLE_Ptr
+    socklen_t
+    struct_addrinfo
+    struct_group_source_req
+    struct_ip_mreq_source
+    struct_ipv6_mreq
+    struct_pollfd
+    struct_rusage_ru_maxrss
+    struct_sctp_event_subscribe
+    struct_sockaddr_in6
+    struct_sockaddr_sa_len
+    struct_sockaddr_storage
+    struct_stat_st_mtim_tv_nsec
+    struct_v4l2_frmivalenum_discrete
+'
+UBUNTU_MENUPROXY='libappmenu.so'
+USER='silence'
+WINDOWID='75497478'
+XAUTHORITY='/home/silence/.Xauthority'
+XDG_CONFIG_DIRS='/etc/xdg/xdg-ubuntu-2d:/etc/xdg'
+XDG_CURRENT_DESKTOP='Unity'
+XDG_DATA_DIRS='/usr/share/ubuntu-2d:/usr/share/gnome:/usr/local/share/:/usr/share/'
+XDG_SEAT_PATH='/org/freedesktop/DisplayManager/Seat0'
+XDG_SESSION_COOKIE='6c7cfcd2edffaa49d81fd02b00000009-1468802936.378359-2137370426'
+XDG_SESSION_PATH='/org/freedesktop/DisplayManager/Session0'
+XMODIFIERS='@im=fcitx'
+_='./configure'
+aligned_stack_if_any='aarch64 ppc x86'
+altivec='yes'
+altivec_deps='ppc'
+amd3dnow='yes'
+amd3dnow_deps='mmx'
+amd3dnow_external_deps='mmx_external'
+amd3dnow_inline_deps='mmx_inline'
+amd3dnow_suggest='amd3dnow_external amd3dnow_inline'
+amd3dnowext='yes'
+amd3dnowext_deps='amd3dnow'
+amd3dnowext_external_deps='amd3dnow_external'
+amd3dnowext_inline_deps='amd3dnow_inline'
+amd3dnowext_suggest='amd3dnowext_external amd3dnowext_inline'
+ar_default='ar'
+arch_default='i686'
+armv5te='yes'
+armv5te_deps='arm'
+armv5te_inline_deps='inline_asm'
+armv6='yes'
+armv6_deps='arm'
+armv6_inline_deps='inline_asm'
+armv6t2='yes'
+armv6t2_deps='arm'
+armv6t2_inline_deps='inline_asm'
+armv8='yes'
+armv8_deps='aarch64'
+armv8_inline_deps='inline_asm'
+asflags_filter='echo'
+asm='yes'
+atomics_gcc_if_any='sync_val_compare_and_swap atomic_compare_exchange'
+atomics_native_if_any='
+    atomics_gcc
+    atomics_suncc
+    atomics_win32
+'
+atomics_suncc_if='atomic_cas_ptr machine_rw_barrier'
+atomics_win32_if='MemoryBarrier'
+avcfiles_if_any=''
+avcodec='yes'
+avconfig='yes'
+avconfigs_if_any=''
+avdemuxers_if_any=''
+avdevice='yes'
+avdevices_if_any=''
+avdrivers_if_any=''
+avfilter='yes'
+avfilters_if_any=''
+avfs_protocol_deps='libavfs'
+avindevs_if_any=''
+avmedia='yes'
+avmuxers_if_any=''
+avoutdevs_if_any=''
+avparsers_if_any='h264_parser'
+avprotocol='yes'
+avprotocols_if_any=''
+avserver='yes'
+avservers_if_any=''
+avsystem='yes'
+avsystems_if_any=''
+avutil='yes'
+avx='yes'
+avx2='yes'
+avx2_deps='avx'
+avx2_external_deps='avx_external'
+avx2_inline_deps='avx_inline'
+avx2_suggest='avx2_external avx2_inline'
+avx_deps='sse42'
+avx_external_deps='sse42_external'
+avx_inline_deps='sse42_inline'
+avx_suggest='avx_external avx_inline'
+bindir_default='${prefix}/bin'
+cc_default='gcc'
+cflags_filter='echo'
+cp_f='cp -f'
+cpu='generic'
+cpunop='yes'
+cpunop_deps='i686'
+crystalhd_deps='libcrystalhd_libcrystalhd_if_h'
+cxx_default='g++'
+datadir_default='${prefix}/share/avbase'
+dcbzl='yes'
+dct_select='rdft'
+debug='yes'
+dep='avx'
+disk_dev_device_deps='libavfs'
+doc='yes'
+doc_deps_any='manpages htmlpages podpages txtpages'
+docdir_default='${prefix}/share/doc/avbase'
+doxygen_default='doxygen'
+dxva2='yes'
+dxva2_deps='dxva2api_h'
+error_resilience_select='me_cmp'
+ext='xop'
+faan='yes'
+faandct='yes'
+faandct_deps='faan fdctdsp'
+faanidct='yes'
+faanidct_deps='faan idctdsp'
+fast_64bit_if_any='aarch64 alpha ia64 mips64 parisc64 ppc64 sparc64 x86_64'
+fast_clz_if_any='aarch64 alpha avr32 mips ppc x86'
+fast_unaligned_if_any='aarch64 ppc x86'
+fma3='yes'
+fma3_deps='avx'
+fma3_external_deps='avx_external'
+fma3_inline_deps='avx_inline'
+fma3_suggest='fma3_external fma3_inline'
+fma4='yes'
+fma4_deps='avx'
+fma4_external_deps='avx_external'
+fma4_inline_deps='avx_inline'
+fma4_suggest='fma4_external fma4_inline'
+frame_thread_encoder_deps='encoders threads'
+h264_parser='yes'
+h264_parser_select='h264_decoder'
+hevc_parser_select='hevc_decoder'
+his3515_system_deps='his3515'
+his3516_system_deps='his3516'
+his3516a_system_deps='his3516a'
+his3518_system_deps='his3518'
+his3535_system_deps='his3535'
+hisavd_outdev_deps_any='his3515 his3516 his3535 his3518 his3516a'
+hisave_indev_deps_any='his3515 his3516 his3535 his3518 his3516a'
+hisavi_indev_deps_any='his3515 his3516 his3535 his3518 his3516a'
+hisavo_outdev_deps_any='his3515 his3516 his3535 his3518 his3516a'
+host_cc_default='gcc'
+host_cflags_filter='echo'
+host_ldflags_filter='echo'
+host_libs='-lm'
+host_os='linux'
+htmlpages='yes'
+htmlpages_deps='perl'
+htmlpages_deps_any='makeinfo_html texi2html'
+http_protocol_select='tcp_protocol'
+httpproxy_protocol_select='tcp_protocol'
+https_protocol_select='tls_protocol'
+i686='yes'
+i686_deps='x86'
+incdir_default='${prefix}/include'
+install='install'
+intrax8_select='error_resilience'
+intrinsics='none'
+intrinsics_neon_deps='neon'
+json_cfile_deps='libjansson'
+ldbrx='yes'
+ldflags_filter='echo'
+libdir_default='${prefix}/lib'
+ln_s='ln -s -f'
+logfile='config.log'
+loongson='yes'
+m='eval ${v}_inline_deps=inline_asm'
+mandir_default='${prefix}/share/man'
+manpages='yes'
+manpages_deps='perl pod2man'
+mdct_select='fft'
+me_cmp_select='fdctdsp idctdsp pixblockdsp'
+mips32r2='yes'
+mips32r2_deps='mips'
+mipsdspr1='yes'
+mipsdspr1_deps='mips'
+mipsdspr2='yes'
+mipsdspr2_deps='mips'
+mipsfpu='yes'
+mipsfpu_deps='mips'
+mmx='yes'
+mmx_deps='x86'
+mmx_external_deps='yasm'
+mmx_inline_deps='inline_asm'
+mmx_suggest='mmx_external mmx_inline'
+mmxext='yes'
+mmxext_deps='mmx'
+mmxext_external_deps='mmx_external'
+mmxext_inline_deps='mmx_inline'
+mmxext_suggest='mmxext_external mmxext_inline'
+mpeg4video_parser_select='error_resilience h263dsp mpeg_er mpegvideo qpeldsp'
+mpeg_er_select='error_resilience'
+mpegaudio_select='mpegaudiodsp'
+mpegaudiodsp_select='dct'
+mpegvideo_parser_select='mpegvideo'
+mpegvideo_select='blockdsp h264chroma hpeldsp idctdsp me_cmp videodsp'
+mpegvideoenc_select='me_cmp mpegvideo pixblockdsp qpeldsp'
+n='avfilters'
+neon='yes'
+neon_deps_any='aarch64 arm'
+neon_inline_deps='inline_asm'
+nm_default='nm -g'
+objformat='elf'
+onvif_config_deps='libonvifc'
+onvif_dev_device_deps='libonvifc'
+onvif_ptz_device_deps='libonvifc'
+onvifave_indev_deps='libonvifc libavformat'
+op='='
+opt='sws_max_filter_size'
+optimizations='yes'
+pixelutils='yes'
+pkg_config_default='pkg-config'
+podpages='yes'
+podpages_deps='perl'
+ppc4xx='yes'
+ppc4xx_deps='ppc'
+prefix_default='/usr/local'
+quotes='""'
+ranlib_default='ranlib'
+rdft_select='fft'
+rtp_protocol_select='udp_protocol'
+runtime_cpudetect='yes'
+safe_bitstream_reader='yes'
+setend='yes'
+setend_deps='arm'
+setend_inline_deps='inline_asm'
+shared='yes'
+shlibdir_default='${LIBDIR}'
+simd_align_16_if_any='altivec neon sse'
+source_path='.'
+sse='yes'
+sse2='yes'
+sse2_deps='sse'
+sse2_external_deps='sse_external'
+sse2_inline_deps='sse_inline'
+sse2_suggest='sse2_external sse2_inline'
+sse3='yes'
+sse3_deps='sse2'
+sse3_external_deps='sse2_external'
+sse3_inline_deps='sse2_inline'
+sse3_suggest='sse3_external sse3_inline'
+sse4='yes'
+sse42='yes'
+sse42_deps='sse4'
+sse42_external_deps='sse4_external'
+sse42_inline_deps='sse4_inline'
+sse42_suggest='sse42_external sse42_inline'
+sse4_deps='ssse3'
+sse4_external_deps='ssse3_external'
+sse4_inline_deps='ssse3_inline'
+sse4_suggest='sse4_external sse4_inline'
+sse_deps='mmxext'
+sse_external_deps='mmxext_external'
+sse_inline_deps='mmxext_inline'
+sse_suggest='sse_external sse_inline'
+ssse3='yes'
+ssse3_deps='sse3'
+ssse3_external_deps='sse3_external'
+ssse3_inline_deps='sse3_inline'
+ssse3_suggest='ssse3_external ssse3_inline'
+static='yes'
+strip_default='strip'
+stripping='yes'
+sws_max_filter_size='256'
+sws_max_filter_size_default='256'
+symver_if_any='symver_asm_label symver_gnu_asm'
+target_os_default='linux'
+target_path='$(CURDIR)'
+tcp_protocol_select='network'
+threads_if_any='
+    pthreads
+    os2threads
+    w32threads
+'
+tls_protocol_deps_any='openssl gnutls'
+tls_protocol_select='tcp_protocol'
+txtpages='yes'
+txtpages_deps='perl makeinfo'
+udp_protocol_select='network'
+udplite_protocol_select='network'
+unix_protocol_deps='sys_un_h'
+unix_protocol_select='network'
+v='AVFILTER_LIST'
+v4l2_indev_deps_any='linux_videodev2_h sys_videoio_h'
+v4l2_outdev_deps_any='linux_videodev2_h sys_videoio_h'
+vaapi='yes'
+vaapi_deps='va_va_h'
+value='yes'
+var='loongson'
+vc1_parser_select='mpegvideo startcode vc1_decoder'
+vda='yes'
+vda_deps='VideoDecodeAcceleration_VDADecoder_h pthreads'
+vda_extralibs='-framework CoreFoundation -framework VideoDecodeAcceleration -framework QuartzCore'
+vdpau='yes'
+vdpau_deps='vdpau_vdpau_h vdpau_vdpau_x11_h'
+vfp='yes'
+vfp_deps_any='aarch64 arm'
+vfp_inline_deps='inline_asm'
+vfpv3='yes'
+vfpv3_deps='vfp'
+vfpv3_inline_deps='inline_asm'
+vsx='yes'
+vsx_deps='ppc'
+w32threads_deps='atomics_native'
+windres_default='windres'
+x86_64_select='i686'
+x86_64_suggest='fast_cmov'
+xlib='yes'
+xop='yes'
+xop_deps='avx'
+xop_external_deps='avx_external'
+xop_inline_deps='avx_inline'
+xop_suggest='xop_external xop_inline'
+xvmc='yes'
+xvmc_deps='X11_extensions_XvMClib_h'
+yasmexe_default='yasm'
+mktemp -u XXXXXX
+6IRFuE
+check_ld cc
+check_cc
+BEGIN /tmp/avconf.713WI3s7.c
+    1	int main(void){ return 0; }
+END /tmp/avconf.713WI3s7.c
+gcc -c -o /tmp/avconf.FW2Mnxwt.o /tmp/avconf.713WI3s7.c
+gcc -o /tmp/avconf.bN9k7Zv2 /tmp/avconf.FW2Mnxwt.o
+check_cflags -std=gnu99
+test_cflags -std=gnu99
+check_cc -std=gnu99
+BEGIN /tmp/avconf.713WI3s7.c
+    1	int x;
+END /tmp/avconf.713WI3s7.c
+gcc -D_ISOC99_SOURCE -std=gnu99 -c -o /tmp/avconf.FW2Mnxwt.o /tmp/avconf.713WI3s7.c
+check_cc -D_FILE_OFFSET_BITS=64
+BEGIN /tmp/avconf.713WI3s7.c
+    1	#include <stdlib.h>
+END /tmp/avconf.713WI3s7.c
+gcc -D_ISOC99_SOURCE -std=gnu99 -D_FILE_OFFSET_BITS=64 -c -o /tmp/avconf.FW2Mnxwt.o /tmp/avconf.713WI3s7.c
+check_cc -D_LARGEFILE_SOURCE
+BEGIN /tmp/avconf.713WI3s7.c
+    1	#include <stdlib.h>
+END /tmp/avconf.713WI3s7.c
+gcc -D_ISOC99_SOURCE -D_FILE_OFFSET_BITS=64 -std=gnu99 -D_LARGEFILE_SOURCE -c -o /tmp/avconf.FW2Mnxwt.o /tmp/avconf.713WI3s7.c
+check_host_cflags -std=gnu99
+check_host_cc -std=gnu99
+BEGIN /tmp/avconf.713WI3s7.c
+    1	int x;
+END /tmp/avconf.713WI3s7.c
+gcc -std=gnu99 -c -o /tmp/avconf.FW2Mnxwt.o /tmp/avconf.713WI3s7.c
+check_host_cflags -Wall
+check_host_cc -Wall
+BEGIN /tmp/avconf.713WI3s7.c
+    1	int x;
+END /tmp/avconf.713WI3s7.c
+gcc -std=gnu99 -Wall -c -o /tmp/avconf.FW2Mnxwt.o /tmp/avconf.713WI3s7.c
+check_host_cflags -O3
+check_host_cc -O3
+BEGIN /tmp/avconf.713WI3s7.c
+    1	int x;
+END /tmp/avconf.713WI3s7.c
+gcc -std=gnu99 -Wall -O3 -c -o /tmp/avconf.FW2Mnxwt.o /tmp/avconf.713WI3s7.c
+check_code cc  int test[2*(sizeof(void *) > 4) - 1]
+check_cc
+BEGIN /tmp/avconf.713WI3s7.c
+    1	int main(void) { int test[2*(sizeof(void *) > 4) - 1]; return 0; }
+END /tmp/avconf.713WI3s7.c
+gcc -D_ISOC99_SOURCE -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -std=gnu99 -c -o /tmp/avconf.FW2Mnxwt.o /tmp/avconf.713WI3s7.c
+/tmp/avconf.713WI3s7.c: In function 'main':
+/tmp/avconf.713WI3s7.c:1:22: error: size of array 'test' is negative
+check_cpp_condition stddef.h defined(__x86_64__)
+check_cpp
+BEGIN /tmp/avconf.713WI3s7.c
+    1	#include <stddef.h>
+    2	#if !(defined(__x86_64__))
+    3	#error "unsatisfied condition: defined(__x86_64__)"
+    4	#endif
+END /tmp/avconf.713WI3s7.c
+gcc -D_ISOC99_SOURCE -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -std=gnu99 -E -o /tmp/avconf.FW2Mnxwt.o /tmp/avconf.713WI3s7.c
+/tmp/avconf.713WI3s7.c:3:2: error: #error "unsatisfied condition: defined(__x86_64__)"
+check_cpp_condition features.h defined __UCLIBC__
+check_cpp
+BEGIN /tmp/avconf.713WI3s7.c
+    1	#include <features.h>
+    2	#if !(defined __UCLIBC__)
+    3	#error "unsatisfied condition: defined __UCLIBC__"
+    4	#endif
+END /tmp/avconf.713WI3s7.c
+gcc -D_ISOC99_SOURCE -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -std=gnu99 -E -o /tmp/avconf.FW2Mnxwt.o /tmp/avconf.713WI3s7.c
+/tmp/avconf.713WI3s7.c:3:2: error: #error "unsatisfied condition: defined __UCLIBC__"
+check_cpp_condition features.h defined __GLIBC__
+check_cpp
+BEGIN /tmp/avconf.713WI3s7.c
+    1	#include <features.h>
+    2	#if !(defined __GLIBC__)
+    3	#error "unsatisfied condition: defined __GLIBC__"
+    4	#endif
+END /tmp/avconf.713WI3s7.c
+gcc -D_ISOC99_SOURCE -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -std=gnu99 -E -o /tmp/avconf.FW2Mnxwt.o /tmp/avconf.713WI3s7.c
+check_cc
+BEGIN /tmp/avconf.713WI3s7.c
+    1	#include <time.h>
+    2	void *v = localtime_r;
+END /tmp/avconf.713WI3s7.c
+gcc -D_ISOC99_SOURCE -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_POSIX_C_SOURCE=200112 -D_XOPEN_SOURCE=600 -std=gnu99 -c -o /tmp/avconf.FW2Mnxwt.o /tmp/avconf.713WI3s7.c
+check_host_cpp_condition features.h defined __UCLIBC__
+check_host_cpp
+BEGIN /tmp/avconf.713WI3s7.c
+    1	#include <features.h>
+    2	#if !(defined __UCLIBC__)
+    3	#error "unsatisfied condition: defined __UCLIBC__"
+    4	#endif
+END /tmp/avconf.713WI3s7.c
+gcc -D_ISOC99_SOURCE -std=gnu99 -Wall -O3 -E -o /tmp/avconf.FW2Mnxwt.o /tmp/avconf.713WI3s7.c
+/tmp/avconf.713WI3s7.c:3:2: error: #error "unsatisfied condition: defined __UCLIBC__"
+check_host_cpp_condition features.h defined __GLIBC__
+check_host_cpp
+BEGIN /tmp/avconf.713WI3s7.c
+    1	#include <features.h>
+    2	#if !(defined __GLIBC__)
+    3	#error "unsatisfied condition: defined __GLIBC__"
+    4	#endif
+END /tmp/avconf.713WI3s7.c
+gcc -D_ISOC99_SOURCE -std=gnu99 -Wall -O3 -E -o /tmp/avconf.FW2Mnxwt.o /tmp/avconf.713WI3s7.c
+check_host_cc
+BEGIN /tmp/avconf.713WI3s7.c
+    1	#include <time.h>
+    2	void *v = localtime_r;
+END /tmp/avconf.713WI3s7.c
+gcc -std=gnu99 -Wall -O3 -c -o /tmp/avconf.FW2Mnxwt.o /tmp/avconf.713WI3s7.c
+check_compile_assert flt_lim float.h limits.h DBL_MAX == (double)DBL_MAX
+check_code cc float.h limits.h char c[2 * !!(DBL_MAX == (double)DBL_MAX) - 1]
+check_cc
+BEGIN /tmp/avconf.713WI3s7.c
+    1	#include <float.h>
+    2	#include <limits.h>
+    3	int main(void) { char c[2 * !!(DBL_MAX == (double)DBL_MAX) - 1]; return 0; }
+END /tmp/avconf.713WI3s7.c
+gcc -D_ISOC99_SOURCE -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_POSIX_C_SOURCE=200112 -D_XOPEN_SOURCE=600 -std=gnu99 -c -o /tmp/avconf.FW2Mnxwt.o /tmp/avconf.713WI3s7.c
+check_cpp_condition stdlib.h defined(__PIC__) || defined(__pic__) || defined(PIC)
+check_cpp
+BEGIN /tmp/avconf.713WI3s7.c
+    1	#include <stdlib.h>
+    2	#if !(defined(__PIC__) || defined(__pic__) || defined(PIC))
+    3	#error "unsatisfied condition: defined(__PIC__) || defined(__pic__) || defined(PIC)"
+    4	#endif
+END /tmp/avconf.713WI3s7.c
+gcc -D_ISOC99_SOURCE -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_POSIX_C_SOURCE=200112 -D_XOPEN_SOURCE=600 -std=gnu99 -E -o /tmp/avconf.FW2Mnxwt.o /tmp/avconf.713WI3s7.c
+/tmp/avconf.713WI3s7.c:3:2: error: #error "unsatisfied condition: defined(__PIC__) || defined(__pic__) || defined(PIC)"
+check_cflags -fomit-frame-pointer
+test_cflags -fomit-frame-pointer
+check_cc -fomit-frame-pointer
+BEGIN /tmp/avconf.713WI3s7.c
+    1	int x;
+END /tmp/avconf.713WI3s7.c
+gcc -D_ISOC99_SOURCE -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_POSIX_C_SOURCE=200112 -D_XOPEN_SOURCE=600 -std=gnu99 -fomit-frame-pointer -c -o /tmp/avconf.FW2Mnxwt.o /tmp/avconf.713WI3s7.c
+check_cc
+BEGIN /tmp/avconf.713WI3s7.c
+    1	int ff_extern;
+END /tmp/avconf.713WI3s7.c
+gcc -D_ISOC99_SOURCE -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_POSIX_C_SOURCE=200112 -D_XOPEN_SOURCE=600 -std=gnu99 -fomit-frame-pointer -c -o /tmp/avconf.FW2Mnxwt.o /tmp/avconf.713WI3s7.c
+check_cc
+BEGIN /tmp/avconf.713WI3s7.c
+    1	void foo(void) { __asm__ volatile ("" ::); }
+END /tmp/avconf.713WI3s7.c
+gcc -D_ISOC99_SOURCE -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_POSIX_C_SOURCE=200112 -D_XOPEN_SOURCE=600 -std=gnu99 -fomit-frame-pointer -c -o /tmp/avconf.FW2Mnxwt.o /tmp/avconf.713WI3s7.c
+check_cc
+BEGIN /tmp/avconf.713WI3s7.c
+    1	void foo(char * restrict p);
+END /tmp/avconf.713WI3s7.c
+gcc -D_ISOC99_SOURCE -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_POSIX_C_SOURCE=200112 -D_XOPEN_SOURCE=600 -std=gnu99 -fomit-frame-pointer -c -o /tmp/avconf.FW2Mnxwt.o /tmp/avconf.713WI3s7.c
+check_cc
+BEGIN /tmp/avconf.713WI3s7.c
+    1	void foo(void) { _Pragma("GCC diagnostic ignored \"-Wdeprecated-declarations\"") }
+END /tmp/avconf.713WI3s7.c
+gcc -D_ISOC99_SOURCE -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_POSIX_C_SOURCE=200112 -D_XOPEN_SOURCE=600 -std=gnu99 -fomit-frame-pointer -c -o /tmp/avconf.FW2Mnxwt.o /tmp/avconf.713WI3s7.c
+check_cc
+BEGIN /tmp/avconf.713WI3s7.c
+    1	struct { int x; } __attribute__((packed)) x;
+END /tmp/avconf.713WI3s7.c
+gcc -D_ISOC99_SOURCE -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_POSIX_C_SOURCE=200112 -D_XOPEN_SOURCE=600 -std=gnu99 -fomit-frame-pointer -c -o /tmp/avconf.FW2Mnxwt.o /tmp/avconf.713WI3s7.c
+check_cc
+BEGIN /tmp/avconf.713WI3s7.c
+    1	union { int x; } __attribute__((may_alias)) x;
+END /tmp/avconf.713WI3s7.c
+gcc -D_ISOC99_SOURCE -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_POSIX_C_SOURCE=200112 -D_XOPEN_SOURCE=600 -std=gnu99 -fomit-frame-pointer -c -o /tmp/avconf.FW2Mnxwt.o /tmp/avconf.713WI3s7.c
+check_cc
+BEGIN /tmp/avconf.713WI3s7.c
+    1	unsigned int endian = 'B' << 24 | 'I' << 16 | 'G' << 8 | 'E';
+END /tmp/avconf.713WI3s7.c
+gcc -D_ISOC99_SOURCE -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_POSIX_C_SOURCE=200112 -D_XOPEN_SOURCE=600 -std=gnu99 -fomit-frame-pointer -c -o /tmp/avconf.FW2Mnxwt.o /tmp/avconf.713WI3s7.c

@@ -1,0 +1,10 @@
+<RCC>
+    <qresource prefix="/">
+        <file>blowup.png</file>
+        <file>bullet.png</file>
+        <file>items.png</file>
+        <file>map.png</file>
+        <file>piece.png</file>
+        <file>tanks.png</file>
+    </qresource>
+</RCC>

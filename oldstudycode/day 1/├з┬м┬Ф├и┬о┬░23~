@@ -1,0 +1,11 @@
+CDROMEJECT
+CDROMCLOSETRAY
+: vs name
+: split name 
+ctrl W W
+shift v
+进入可视模式
+
+< 向左缩进一个单位
+> 向右缩进一个单位
+gg = shif g 全文自动缩进：

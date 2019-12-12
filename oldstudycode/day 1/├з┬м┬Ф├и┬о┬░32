@@ -1,0 +1,57 @@
+restrict  指针的唯一限制
+
+strcpy();
+
+
+ATM 存取款
+
+account项目
+账户操作
+       account.c
+       account.h
+              withdraw();
+ 	      deposit();
+              getBalance();
+              init();
+              destroy();
+多人存取款模拟程序
+        account_th.c
+        
+
+
+pthread_mutex_t mutex = PTHREAD_MUTEX_INITILATER;
+pthread_cond_t = cond PTHREAD_COND_INITIALITER;
+
+
+ cal -- > 1 +++ 100
+ get -- > get result
+ 
+条件变量
+
+等待线程、
+	   
+	   1给mutex上锁
+	   2等待通知pthread_cond_wait
+	        a 解锁
+                b.进入线程等待队列
+                c.阻塞，等待通知信号
+		d、如果收到通知信号，推出阻塞状态
+                e、上锁
+           3操作共享数序
+	   4给mutex解锁
+           
+	
+通知线程
+   1、给mutex上锁
+   2、操作数据
+   3、发出通知pthread_cond_broadcast
+   4、给mutex解锁
+
+
+producer
+consumer
+
+
+
+
+

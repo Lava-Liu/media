@@ -1,0 +1,11 @@
+myremove(char *pathname)
+判断文件or目录
+ 目录--》遍历
+      opendir
+      while（readdir）
+      {
+        myremove(  )
+      }
+       
+ closedir:
+删除当前目录

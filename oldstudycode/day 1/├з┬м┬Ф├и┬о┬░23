@@ -1,0 +1,18 @@
+CDROMEJECT
+CDROMCLOSETRAY
+: vs name
+: split name 
+ctrl W W
+shift v
+进入可视模式
+
+< 向左缩进一个单位
+> 向右缩进一个单位
+gg = shif g 全文自动缩进：
+fd_set 表示一个描述符号的集合
+互斥量 multex
+读写锁 rwlock
+
+F_GETLK 获得当前文件的锁
+F_SETLK 设置一个文件锁
+F_SETLKW 设置一个阻塞的文件锁

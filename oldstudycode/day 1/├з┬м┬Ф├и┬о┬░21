@@ -1,0 +1,112 @@
+Linux 系统编程
+
+文件
+file
+.zip
+.gz
+tar c x v f t j z u  u更新  f指定位置和设备 t 显示文件内容 v显示命令执行后的相关信息
+ 
+file
+七大文件类型
+-  普通文件 normal
+d   目录文件 direcotry
+c   字符设备文件 character 
+b   块设备文件   block
+l   符号链接文件  linkage 类似于window下的快捷方式
+s   套结字文件  socket
+p   管道文件    pipe 
+
+挂载  物理设备 分区 u盘
+进程 process 程序运行的实例，系统资源分配的最小单位
+线程 thread  任务分配的最小单位，组成进程的单元
+BIOS basic input/output system 基本输入输出系统
+     1.加载芯片
+     2.初始化最基本的一个输入输出系统
+加载外部设备
+光驱
+磁盘
+u盘
+加载磁盘
+1、主引导 MBR main boot record 主引导记录
+512字节的区域 存在于0磁道
+存放当前磁盘的分区表信息
+找到启动分区
+2、次引导 grup
+1引导各个不同的操作系统
+  2加载操作系统
+加载 Linux 
+1、加载linux内核镜像
+2、加载initrd
+   最小根文件系统
+加载进程
+   a、加载0号进程
+   第一个被加载的系统进程（内核）
+   初始化一部分硬件设备和管理文件
+   启动一号进程
+ 
+   b、1号进程（/sbin/init）
+    1、加载配置文件etc/init.d/* /etc/profile
+    2、/sbin/getty (初始化tty终端)
+    3、管理系统中所有的孤儿进程
+Login 登陆
+ 登陆后根据登陆的用户来加载用户相关的配置
+/etc/profile
+~/.bashrc
+ 启动用户对应的shell（bash）
+
+
+32-bit 
+每个进程可以使用的内存空间为4GB
+2^4^8 = 2^32  
+
+虚拟内存 --> 物理内存地址
+
+
+内核空间与用户空间
+ 都是内存空间
+
+用户进程只能访问用户空间
+内核可以访问所有的空间
+
+所有进程共享同一个内核空间
+所有进程的用户空间相互独立
+
+
+每个进程的虚拟内存地址可以使用的范围为4GB
+实际可以使用的为3GB的用户空间内存
+
+API application programing interface
+应用程序编程接口
+ 
+	系统调用程序接口 -- 内核接口 -- 函数
+IEEE I terpal
+vi etc/security/limit.conf
+用来修改系统的各种限制
+
+兼容数据类型
+size_t
+32-->unsigned int 
+64 -- >unsigned long
+ssize_t
+32 --> signed int 
+64 --> signed long
+文件描述符
+ write操作没有缓冲区机制
+内容直接被输出至相对应的设备和文件
+
+
+十进制   100    %d，%u
+八进制   0777    %o
+十六进制 0xabcd   %x
+二进制   0b1010   -----
+
+
+errno
+错误号
+最后一次调用系统调用所返回的错误好
+可以使用strerror来进行错误分析，返回字符串
+open();
+errno
+close();
+errno;
+
